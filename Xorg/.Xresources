@@ -1,0 +1,84 @@
+! 
+! ██╗  ██╗██████╗ ███████╗███████╗ ██████╗ ██╗   ██╗██████╗  ██████╗███████╗███████╗
+! ╚██╗██╔╝██╔══██╗██╔════╝██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔════╝██╔════╝██╔════╝
+!  ╚███╔╝ ██████╔╝█████╗  ███████╗██║   ██║██║   ██║██████╔╝██║     █████╗  ███████╗
+!  ██╔██╗ ██╔══██╗██╔══╝  ╚════██║██║   ██║██║   ██║██╔══██╗██║     ██╔══╝  ╚════██║
+! ██╔╝ ██╗██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗███████║
+! ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
+!
+! Xresources Config File by Arfan Zubi                                                                        
+
+
+!! Appearance
+
+URxvt.font: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Regular:size=10
+URxvt.boldFont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold:size=10
+URxvt.italicFont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Italic:size=10
+URxvt.boldItalicfont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold Italic:size=10
+URxvt.letterSpace: -2
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 10
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_rigth: false
+URxvt.urgentOnBell: true
+URxvt.depth: 32
+URxvt.iso14755: false
+
+!! Colorscheme
+
+*.foreground: #D3C6AA
+*.background: #2F383E
+*.cursorColor: #FFFFFF
+
+! black
+*.color0: #374247
+*.color8: #859289
+! red
+*.color1: #E67E80
+*.color9: #E67E80
+! green
+*.color2: #83C092
+*.color10: #A7C080
+! yellow
+*.color3: #DBBC7F
+*.color11: #DBBC7F
+! blue
+*.color4: #7FBBB3
+*.color12: #7FBBB3
+! magenta/purple
+*.color5: #D699B6
+*.color13: #D699B6
+! cyan
+*.color6: #83C092
+*.color14: #83C092
+! white
+*.color7: #D3C6AA
+*.color15: #D3C6AA
+
+!! Copy Paste & Other Extentions
+
+! Using <Shift-Ctrl-C> for copying and <Shift-Ctrl-V> for pasting
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+
+! Disabling previous keybindings
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+!! Retina Display Settings
+Xft.dpi: 192
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
