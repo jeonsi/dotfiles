@@ -6,15 +6,15 @@
 ! ██╔╝ ██╗██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗███████║
 ! ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
 !
-! Xresources Config File by Arfan Zubi                                                                        
+! Xresources Config File by Arfan Zubi
 
 
 !! Appearance
 
-URxvt.font: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Regular:size=10
-URxvt.boldFont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold:size=10
-URxvt.italicFont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Italic:size=10
-URxvt.boldItalicfont: xft:MesloLGS NF:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold Italic:size=10
+URxvt.font: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Regular:size=10
+URxvt.boldFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold:size=10
+URxvt.italicFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Italic:size=10
+URxvt.boldItalicFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold Italic:size=10
 URxvt.letterSpace: -2
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -72,6 +72,16 @@ URxvt.keysym.Control-Meta-v: builtin-string:
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
+
+!! Changing Font Size on the Fly
+
+URxvt.perl-ext-common: resize-font
+
+! Default Keybindings
+! Ctrl++ -> Increase Size
+! Ctrl+- -> Decrease Size
+! Ctrl+= -> Reset Size
+! Ctrl+? -> See Current Size
 
 !! Retina Display Settings
 Xft.dpi: 192
