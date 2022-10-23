@@ -52,7 +52,10 @@ bindsym $mod+w exec firefox
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
+
+# start rofi
+bindsym $mod+d exec --no-startup-id rofi -show-icons -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
 # change focus
 bindsym $mod+h focus left
