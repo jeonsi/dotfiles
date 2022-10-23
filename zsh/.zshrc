@@ -9,11 +9,14 @@
 # ZSH Config File by Arfan Zubi
                                         
 
-#  Aliases
+# Aliases
 alias rm='rm -v'
 alias ls='ls -laGH --color=auto'
 alias vi='nvim'
 alias vim='nvim'
+
+# Setting Default Editor
+export EDITOR=nvim
 
 # Autostart X at Login
 if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then

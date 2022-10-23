@@ -11,11 +11,8 @@
 
 !! Appearance
 
-URxvt.font: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Regular:size=10
-URxvt.boldFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold:size=10
-URxvt.italicFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Italic:size=10
-URxvt.boldItalicFont: xft:NotoSansMono Nerd Font Mono:Noto Sans Mono:style=Bold Italic:size=10
-URxvt.letterSpace: -2
+URxvt.font: xft:Fira Code Nerd Font Mono:Monospace:size=10
+URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 10
@@ -59,29 +56,16 @@ URxvt.iso14755: false
 *.color7: #D3C6AA
 *.color15: #D3C6AA
 
-!! Copy Paste & Other Extentions
+!! Extensions
+URxvt.perl-ext-common: resize-font
 
-! Using <Shift-Ctrl-C> for copying and <Shift-Ctrl-V> for pasting
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-
-! Disabling previous keybindings
-URxvt.keysym.Control-Meta-c: builtin-string:
-URxvt.keysym.Control-Meta-v: builtin-string:
+!! extension settings
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
 
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
-
-!! Changing Font Size on the Fly
-
-URxvt.perl-ext-common: resize-font
-
-! Default Keybindings
-! Ctrl++ -> Increase Size
-! Ctrl+- -> Decrease Size
-! Ctrl+= -> Reset Size
-! Ctrl+? -> See Current Size
 
 !! Retina Display Settings
 Xft.dpi: 192
