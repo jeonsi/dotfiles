@@ -42,6 +42,10 @@ client.background       #2F383E
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# General settings for floating windows
+floating_minimum_size 450 x 450
+floating_maximum_size 1500 x 1500
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -203,7 +207,7 @@ bar {
 exec setxkbmap ch,us
 
 # Set Resolution - see /etc/X11/xorg.conf.d/10-monitor.conf
-exec xrandr --output Virtual-1 --mode 2560x1600
+exec xrandr --output Virtual-1 --mode 2560x1600 --dpi 235
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -219,3 +223,4 @@ exec --no-startup-id picom --no-vsync
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
+
