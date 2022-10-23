@@ -9,6 +9,11 @@
 # ZSH Config File by Arfan Zubi
                                         
 
+# Autostart X at Login
+if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    exec startx
+fi
+
 # Aliases
 alias rm='rm -v'
 alias ls='ls -laGH --color=auto'
@@ -16,12 +21,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 # Setting Default Editor
-export EDITOR=nvim
-
-# Autostart X at Login
-if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    exec startx
-fi
+export EDITOR='nvim'
 
 # ZSH Case-Insensitive Autocomplete
 autoload -Uz compinit
@@ -41,7 +41,13 @@ setopt PROMPT_SUBST
 PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue}%1~%f%b | %Bλ%b '
 
 # Theme for bat (batcat)
-export BAT_THEME="base16"
+export BAT_THEME='base16'
+
+# Icons for lf file manager
+[ -f ~/.config/LF_ICONS ] && {
+	LF_ICONS="$(tr '\n' ':' <~/.config/LF_ICONS)" \
+		&& export LF_ICONS
+}
 
 # Keybindings for FZF
 source /usr/share/fzf/key-bindings.zsh
