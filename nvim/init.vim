@@ -129,16 +129,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
-    Plug 'ptzz/lf.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'voldikss/vim-floaterm'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
 
     " Themes
     Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
     Plug 'joshdick/onedark.vim'
     Plug 'morhetz/gruvbox'
-    Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 
     " Status bar
     Plug 'vim-airline/vim-airline'
@@ -323,3 +323,4 @@ set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 " Show the status on the second to last line.
 set laststatus=2
 " }}}
+
