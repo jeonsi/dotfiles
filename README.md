@@ -15,7 +15,7 @@ For help with the installation process watch my video: ...
 First things first: Update the system!
 
 ```
-$ pacman -Syyu
+$ pacman -Syu
 ```
 
 ### `sudo` Command
@@ -29,13 +29,13 @@ $ pacman -S sudo
 
 ```
 $ useradd -m -g users -G wheel,storage,power,audio <your username>
-$ passwd <your password>
+$ passwd <your username> <your password>
 ```
 
 #### Grant root access to our user
 
 ```
-$ EDITOR=nvim visudo
+$ EDITOR=vim visudo
 ```
 
 Uncomment the following line:
@@ -62,7 +62,7 @@ $ xdg-user-dirs-update
 To install [yay](https://github.com/Jguer/yay):
 
 ```
-$ sudo pacman -S base-devel
+$ sudo pacman -S base-devel git
 $ mkdir aur
 $ cd aur
 $ git clone https://aur.archlinux.org/yay.git
@@ -100,21 +100,15 @@ $ sudo pacman -S network-manager-applet
 Enable SSH, DHCP and NM:
 
 ```
-$ systemctl enable sshd
-$ systemctl enable dhcpcd
-$ systemctl enable NetworkManager
-```
-
-Applet: 
-
-```
-$ sudo pacman -S 
+$ sudo systemctl enable sshd
+$ sudo systemctl enable dhcpcd
+$ sudo systemctl enable NetworkManager
 ```
 
 ### Bluetooth
 
 ```
-$ sudo pacman -S blugez bluez-utils blueman
+$ sudo pacman -S bluez bluez-utils blueman
 $ sudo systemctl enable bluetooth
 ```
 
@@ -148,6 +142,12 @@ $ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip
 $ sudo pacman -S i3
 ```
 
+### Compositor
+
+```
+$ sudo pacman -S picom
+```
+
 ### Font
 
 ```
@@ -162,6 +162,12 @@ $ yay -S nerd-fonts-fira-code
 
 ```
 $ sudo pacman -S zsh
+```
+
+Change default shell to zsh:
+
+```
+$ chsh -s $(which zsh)
 ```
 
 ### Terminal
@@ -209,5 +215,5 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S git bat fzf htop nodejs npm yarn openssh wget
+$ sudo pacman -S bat fzf htop nodejs npm yarn openssh wget
 ```
