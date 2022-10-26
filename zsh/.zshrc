@@ -36,11 +36,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Set up Git Branch Details into Prompt
-zstyle ':vcs_info:git:*' formats '%b '
+zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
 
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue}%1~%f%b | %Bλ%b '
+PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue}%1~%f%b ${vcs_info_msg_0_}| %Bλ%b '
 
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
@@ -66,4 +66,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 

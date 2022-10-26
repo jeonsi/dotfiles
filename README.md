@@ -215,5 +215,5 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf htop nodejs npm yarn openssh wget
+$ sudo pacman -S bat fzf feh htop nodejs npm yarn openssh wget
 ```
