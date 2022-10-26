@@ -11,7 +11,7 @@
 
 !! Appearance
 
-URxvt.font: xft:Fira Code Nerd Font Mono:Monospace:size=10
+URxvt.font: xft:Fira Code Nerd Font Mono:Monospace:size=8
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -68,7 +68,7 @@ URxvt.underlineURLs: true
 URxvt.urlButton: 1
 
 !! Retina Display Settings
-Xft.dpi: 192
+Xft.dpi: 235
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
@@ -76,3 +76,4 @@ Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+

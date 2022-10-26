@@ -19,6 +19,8 @@ alias rm='rm -v'
 alias ls='ls -laGH --color=auto'
 alias vi='nvim'
 alias vim='nvim'
+alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias ..='cd ..'
 
 # Setting Default Editor
 export EDITOR='nvim'
@@ -40,6 +42,9 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue}%1~%f%b | %Bλ%b '
 
+# Setting default Ranger RC to false to avoid loading it twice
+export RANGER_LOAD_DEFAULT_RC='false'
+
 # Theme for bat (batcat)
 export BAT_THEME='base16'
 
@@ -54,11 +59,11 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # ZSH Autosuggestions
-source ~/Sources/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # VIM Keybindings for ZSH
 #source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
-source ~/Sources/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
