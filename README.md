@@ -200,6 +200,12 @@ $ sudo pacman -S polybar
 $ sudo pacman -S ranger
 ```
 
+For previews we also need **w3m** and **feh**:
+
+```
+$ sudo pacman -S w3m feh
+```
+
 ### Browser
 
 ```
@@ -215,5 +221,5 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf feh htop nodejs npm yarn openssh wget
+$ sudo pacman -S bat fzf htop nodejs npm yarn wget cmatrix
 ```
