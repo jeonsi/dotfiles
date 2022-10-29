@@ -15,6 +15,7 @@ if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 # Aliases
+alias q='exit'
 alias rm='rm -v'
 alias ls='ls -laGH --color=auto'
 alias vi='nvim'

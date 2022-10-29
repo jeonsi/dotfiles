@@ -173,7 +173,7 @@ $ chsh -s $(which zsh)
 ### Terminal
 
 ```
-$ sudo pacman -S rxvt-unicode
+$ sudo pacman -S rxvt-unicode alacritty
 ```
 
 ### Editor
@@ -221,5 +221,5 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf htop nodejs npm yarn wget cmatrix
+$ sudo pacman -S bat fzf lsd htop nodejs npm yarn wget cmatrix
 ```
