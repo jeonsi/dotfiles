@@ -22,8 +22,8 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias t='tree'
-alias rm='rm -v'
 #alias ls='ls -laGH --color=auto'
+alias rm='rm -v'
 
 alias vi='nvim'
 alias vim='nvim'
@@ -57,10 +57,10 @@ export RANGER_LOAD_DEFAULT_RC='false'
 export BAT_THEME='base16'
 
 # Icons for lf file manager
-[ -f ~/.config/LF_ICONS ] && {
-	LF_ICONS="$(tr '\n' ':' <~/.config/LF_ICONS)" \
-		&& export LF_ICONS
-}
+#[ -f ~/.config/LF_ICONS ] && {
+#	LF_ICONS="$(tr '\n' ':' <~/.config/LF_ICONS)" \
+#		&& export LF_ICONS
+#}
 
 # Keybindings for FZF
 source /usr/share/fzf/key-bindings.zsh
