@@ -22,8 +22,8 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias t='tree'
-#alias ls='ls -laGH --color=auto'
 alias rm='rm -v'
+#alias ls='ls -laGH --color=auto'
 
 alias vi='nvim'
 alias vim='nvim'
@@ -48,7 +48,7 @@ zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
 
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}%B  %b '
+PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}   '
 
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
@@ -74,5 +74,4 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
