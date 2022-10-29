@@ -16,12 +16,19 @@ fi
 
 # Aliases
 alias q='exit'
+alias ..='cd ..'
+alias ls='lsd -Fal'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias t='tree'
 alias rm='rm -v'
-alias ls='ls -laGH --color=auto'
+#alias ls='ls -laGH --color=auto'
+
 alias vi='nvim'
 alias vim='nvim'
+
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ..='cd ..'
 
 # Setting Default Editor
 export EDITOR='nvim'
@@ -41,7 +48,7 @@ zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
 
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue}%1~%f%b ${vcs_info_msg_0_}| %Bλ%b '
+PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}%B  %b '
 
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
