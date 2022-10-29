@@ -70,6 +70,14 @@ $ cd yay
 $ makepkg -si
 ```
 
+### SPICE support on gues
+
+This will enhance graphics and improve support for multiple monitors or clipboard sharing.
+
+```
+$ sudo pacman -S spice-vdagent xf86-video-qxl
+```
+
 ### Sound
 
 ```
