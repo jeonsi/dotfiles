@@ -44,7 +44,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Set up Git Branch Details into Prompt
-zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
+zstyle ':vcs_info:git:*' formats 'on %F{yellow} %b%f '
 
 # Prompt Appearance
 setopt PROMPT_SUBST
