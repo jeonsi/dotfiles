@@ -23,12 +23,20 @@ alias la='ls -a'
 alias lla='ls -la'
 alias t='tree'
 alias rm='rm -v'
-#alias ls='ls -laGH --color=auto'
+alias open='xdg-open'
 
 alias vi='nvim'
 alias vim='nvim'
 
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
+# Colored Output
+#alias ls='ls -laGH --color=auto'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip --color=auto'
+
+export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Setting Default Editor
 export EDITOR='nvim'

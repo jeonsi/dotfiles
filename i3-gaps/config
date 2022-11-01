@@ -27,7 +27,7 @@ font xft:FiraCode Nerd Font 8
 
 # Color Settings
 # class                 border  bground text    indicator child_border
-client.focused          #83C092 #374247 #D3C6AA #83C092   #83C092
+client.focused          #83C092 #83C092 #2F383E #83C092   #83C092
 client.focused_inactive #2F383E #374247 #859289 #2F383E   #2F383E
 client.unfocused        #2F383E #374247 #859289 #2F383E   #2F383E
 client.urgent           #E67E80 #374247 #E67E80 #E67E80   #E67E80
@@ -214,7 +214,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom --no-vsync
 
 # Setting the Wallpaper
-exec_always feh --bg-scale /home/arfan/Downloads/forest.jpg
+exec_always feh --bg-scale /home/arfan/Downloads/quds.jpg
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
