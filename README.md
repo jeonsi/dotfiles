@@ -205,13 +205,13 @@ $ sudo pacman -S polybar
 ### File Manager
 
 ```
-$ sudo pacman -S ranger
+$ sudo pacman -S ranger ueberzug
 ```
 
-For previews we also need **w3m** and **feh**:
+For previews we also need **feh** and **Überzug**:
 
 ```
-$ sudo pacman -S w3m feh
+$ sudo pacman -S feh ueberzug
 ```
 
 ### Browser
