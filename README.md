@@ -229,5 +229,5 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf lsd htop nodejs npm yarn wget cmatrix
+$ sudo pacman -S bat fzf ripgrep lsd htop nodejs npm yarn wget cmatrix
 ```
