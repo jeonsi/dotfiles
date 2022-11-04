@@ -125,7 +125,6 @@ set splitbelow
 call plug#begin('~/.vim/plugged')
 
     " Tools
-    Plug 'dense-analysis/ale'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
@@ -133,9 +132,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'voldikss/vim-floaterm'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
+    Plug 'chrisbra/Colorizer'
 
     " Themes
-    Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
     Plug 'joshdick/onedark.vim'
     Plug 'morhetz/gruvbox'
@@ -145,6 +144,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 
     " Language support & auto completion
+    Plug 'dense-analysis/ale'
     Plug 'rust-lang/rust.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'sheerun/vim-polyglot'

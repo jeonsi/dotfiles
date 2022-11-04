@@ -40,7 +40,7 @@ URxvt.iso14755: false
 *.color1: #E67E80
 *.color9: #E67E80
 ! green
-*.color2: #83C092
+*.color2: #A7C080
 *.color10: #A7C080
 ! yellow
 *.color3: #DBBC7F

@@ -65,13 +65,13 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-    startup_mode: Windowed
+  startup_mode: Windowed
 
   # Window title
-    title: Terminal
+  title: Terminal
 
   # Allow terminal applications to change Alacritty's window title.
-    dynamic_title: true
+  dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -85,15 +85,15 @@ window:
   # Override the variant of the GTK theme/Wayland client side decorations.
   # Commonly supported values are `dark` and `light`. Set this to `None` to use
   # the default theme variant.
-    decorations_theme_variant: None
+  decorations_theme_variant: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 1
 
 # Font configuration
 font:
@@ -144,13 +144,13 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 7.5
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   #offset:
-  x: -1
+  x: -2
   y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
@@ -270,7 +270,7 @@ colors:
   normal:
     black:   '#374247'
     red:     '#E67E80'
-    green:   '#83C092'
+    green:   '#A7C080'
     yellow:  '#DBBC7F'
     blue:    '#7FBBB3'
     magenta: '#D699B6'
