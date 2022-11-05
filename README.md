@@ -229,5 +229,12 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf ripgrep lsd htop nodejs npm yarn wget cmatrix
+$ sudo pacman -S bat fzf ripgrep lsd htop nodejs npm yarn wget cmatrix neofetch
 ```
+
+What you also will need:
+
+- [vim-plug](https://github.com/junegunn/vim-plug)
+- [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
