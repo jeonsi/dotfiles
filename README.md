@@ -70,7 +70,7 @@ $ cd yay
 $ makepkg -si
 ```
 
-### SPICE support on gues
+### SPICE support on guest
 
 This will enhance graphics and improve support for multiple monitors or clipboard sharing.
 

@@ -47,16 +47,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 _comp_options+=(globdots)
 
+# Load Additional Glyphs for Fira Code Font
+source ~/.local/share/icons-in-terminal/icons_bash.sh
+
 # Load Version Control System into Prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Set up Git Branch Details into Prompt
-zstyle ':vcs_info:git:*' formats 'on %F{yellow} %b%f '
+zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
 
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}   '
+PROMPT='%B%F{cyan}[%n%f@%F{cyan}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}   '
 
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
