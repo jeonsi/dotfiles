@@ -10,7 +10,6 @@
 
 
 !! Appearance
-
 URxvt.font: \
     xft:FiraCode Nerd Font Mono:size=7:antialias=true:hinting=true,\
     xft:Noto Color Emoji:size=7
@@ -28,7 +27,6 @@ URxvt.depth: 32
 URxvt.iso14755: false
 
 !! Colorscheme
-
 *.foreground: #D3C6AA
 *.background: #2F383E
 *.cursorColor: #FFFFFF
@@ -61,7 +59,7 @@ URxvt.iso14755: false
 !! Extensions
 URxvt.perl-ext-common: default,resize-font
 
-!! extension settings
+! Extension Settings
 URxvt.keysym.C-Down:  resize-font:smaller
 URxvt.keysym.C-Up:    resize-font:bigger
 

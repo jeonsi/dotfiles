@@ -53,6 +53,7 @@ set expandtab
 
 " Do not save backup files.
 set nobackup
+set nowritebackup
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
@@ -126,6 +127,7 @@ call plug#begin('~/.vim/plugged')
 
     " Tools
     Plug 'preservim/nerdtree'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -200,19 +202,21 @@ noremap <right> <c-w>>
 noremap <left> <c-w><
 
 " NERDTree specific mappings.
-" Map the F3 key to toggle NERDTree open and close.
-nnoremap <leader>nt :NERDTreeToggle<cr>
+    " Map the F3 key to toggle NERDTree open and close.
+    nnoremap <leader>nt :NERDTreeToggle<cr>
 
-" Have nerdtree ignore certain files and directories.
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+    " Have nerdtree ignore certain files and directories.
+    let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+" Coc Mappings
+    " Tab to go to next suggestion
+    inoremap <silent><expr> <Tab>
+          \ coc#pum#visible() ? coc#pum#next(1) :
+          \ CheckBackspace() ? "\<Tab>" :
+          \ coc#refresh()
 
-" Remap <cr> to make it confirms completion
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+    " Remap <cr> to make it confirms completion
+    inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 " }}}
 
 
@@ -229,10 +233,10 @@ augroup END
 autocmd BufWritePost ~/.Xresources !xrdb %
 
 " Settings for colorscheme
-    if has('termguicolors')
-        " Turns on 24-bit RGB color support
-        set termguicolors
-    endif
+if has('termguicolors')
+    " Turns on 24-bit RGB color support
+    set termguicolors
+endif
     
     " For dark version.
     set background=dark
@@ -241,26 +245,11 @@ autocmd BufWritePost ~/.Xresources !xrdb %
     " set background=light
     
     " Everforest theme settings
-        " This configuration option should be placed before `colorscheme everforest`.
         " Available values: 'hard', 'medium'(default), 'soft'
         let g:everforest_background='medium'
 
         " For better performance
         let g:everforest_better_performance=1
-
-    " One Dark theme settings
-        " Set to 1 if you want to hide end-of-buffer filler lines (~) for a cleaner look
-        let g:onedark_hide_endofbuffer=1
-
-        " Set to 256 for 256-color terminals (the default), or set to 16 to use your terminal emulator's native 16 colors
-        let g:onedark_termcolors=1
-
-        " Set to 1 if your terminal emulator supports italics; 0 otherwise (the default).
-        let g:onedark_terminal_italics=1
-
-    " Embark theme settings
-        " Set to 1 if your terminal emulator supports italics; 0 otherwise (the default).
-        let g:embark_terminal_italics = 1
         
     colorscheme everforest
 
@@ -270,38 +259,31 @@ highlight Comment cterm=italic
 " Hide end of buffer symbol (~)
 highlight EndOfBuffer ctermfg=bg
 
-" Start NERDTree and put the cursor back in the other window.
-" autocmd VimEnter * NERDTree | wincmd p
+" NERDTree Settings
+    " Show hidden files in NerdTree by default
+    let NERDTreeShowHidden=1
 
-" Show hidden files in NerdTree by default
-let NERDTreeShowHidden=1
-
-" Settings for Rust auto-completion
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['rust-analyzer'],
-\ }
-
-" use <tab> for trigger completion and navigate to the next complete item
+" Use <tab> for trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 "FZF preview window fix
-" This is the default option:
-"   - Preview window on the right with 50% width
-"   - CTRL-/ will toggle preview window.
-" - Note that this array is passed as arguments to fzf#vim#with_preview function.
-" - To learn more about preview window options, see `--preview-window` section of `man fzf`.
-let g:fzf_preview_window = ['right,50%', 'ctrl-/']
+    " This is the default option:
+    "   - Preview window on the right with 50% width
+    "   - CTRL-/ will toggle preview window.
+    " - Note that this array is passed as arguments to fzf#vim#with_preview function.
+    " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+    let g:fzf_preview_window = ['right,50%', 'ctrl-/']
 
-" Preview window is hidden by default. You can toggle it with ctrl-/.
-" It will show on the right with 50% width, but if the width is smaller
-" than 70 columns, it will show above the candidate list
-" let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
+    " Preview window is hidden by default. You can toggle it with ctrl-/.
+    " It will show on the right with 50% width, but if the width is smaller
+    " than 70 columns, it will show above the candidate list
+    " let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 
-" Empty value to disable preview window altogether
-" let g:fzf_preview_window = []
+    " Empty value to disable preview window altogether
+    " let g:fzf_preview_window = []
 " }}}
 
 
