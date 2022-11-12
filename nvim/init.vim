@@ -130,8 +130,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    Plug 'voldikss/vim-floaterm'
     Plug 'francoiscabrol/ranger.vim'
+    Plug 'voldikss/vim-floaterm'
     Plug 'rbgrouleff/bclose.vim'
 
     " Themes
