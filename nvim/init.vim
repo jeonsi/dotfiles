@@ -127,14 +127,12 @@ call plug#begin('~/.vim/plugged')
 
     " Tools
     Plug 'preservim/nerdtree'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'voldikss/vim-floaterm'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
-    Plug 'chrisbra/Colorizer'
 
     " Themes
     Plug 'sainnhe/everforest'
@@ -146,11 +144,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 
     " Language support & auto completion
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'dense-analysis/ale'
     Plug 'rust-lang/rust.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'chrisbra/Colorizer'
 
     " Search
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -296,7 +295,7 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = { "c", "rust" },
+    disable = {},
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
         local max_filesize = 100 * 1024 -- 100 KB
