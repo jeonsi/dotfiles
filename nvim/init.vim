@@ -130,6 +130,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-rooter'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+    " Telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+    " Ranger
     Plug 'francoiscabrol/ranger.vim'
     Plug 'voldikss/vim-floaterm'
     Plug 'rbgrouleff/bclose.vim'
@@ -179,12 +185,12 @@ nnoremap <leader>, ``
 nnoremap <space> :
 
 " Automatic closing of brackets and brackets
-inoremap (; (<CR>);<C-c>O
-inoremap (, (<CR>),<C-c>O
-inoremap {; {<CR>};<C-c>O
-inoremap {, {<CR>},<C-c>O
-inoremap [; [<CR>];<C-c>O
-inoremap [, [<CR>],<C-c>O
+"inoremap (; (<CR>);<C-c>O
+"inoremap (, (<CR>),<C-c>O
+"inoremap {; {<CR>};<C-c>O
+"inoremap {, {<CR>},<C-c>O
+"inoremap [; [<CR>];<C-c>O
+"inoremap [, [<CR>],<C-c>O
 
 " You can split the window in Vim by typing :split or :vsplit.
 " Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
@@ -216,6 +222,12 @@ noremap <left> <c-w><
 
     " Remap <cr> to make it confirms completion
     inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }}}
 
 
