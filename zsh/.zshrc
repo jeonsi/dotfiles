@@ -17,7 +17,7 @@ fi
 # Aliases
 alias q='exit'
 alias ..='cd ..'
-alias ls='lsd -Fal'
+alias ls='lsd -Fl'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -36,7 +36,9 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 
+export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER='less -R --use-color -Dd+r -Du+b'
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Setting Default Editor
 export EDITOR='nvim'
