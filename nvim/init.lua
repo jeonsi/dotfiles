@@ -74,7 +74,7 @@ opt.showmode = true
 opt.showmatch = true
 
 -- Search highlighting
-opt.hlsearch = true
+opt.hlsearch = false
 
 -- Command history
 opt.history = 1000
@@ -98,6 +98,7 @@ opt.splitbelow = true
 -- PLUGINS
 require 'paq' {
     'savq/paq-nvim';                  -- Let Paq manage itself
+    'neovim/nvim-lspconfig';          -- LSP
     'nvim-lualine/lualine.nvim';      -- Status line
 
     -- Tools
@@ -123,7 +124,7 @@ vim.cmd('colorscheme everforest')
 -- Status line
 require('lualine').setup({
   options = {
-    theme = 'auto', -- Can also be "auto" to detect automatically.
+    theme = 'auto',
   }
 })
 
@@ -132,6 +133,9 @@ vim.cmd('autocmd BufWritePost ~/.Xresources !xrdb %')
 
 -- Show hidden NerdTree files
 g.NERDTreeShowHidden = 1
+
+-- LSP
+require('lspconfig').bashls.setup{}
 
 -- TreeSitter settings
 require'nvim-treesitter.configs'.setup {
