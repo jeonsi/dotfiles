@@ -95,6 +95,7 @@ $ yay -S pa-applet-git
 ### Network
 
 ```
+$ sudo pacman -S openssh
 $ sudo pacman -S iw wpa_supplicant
 $ sudo pacman -S dhcpcd networkmanager 
 ```
@@ -150,6 +151,14 @@ $ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip
 $ sudo pacman -S i3
 ```
 
+After installing X and i3 create a file **.xinitrc** in your home directory with the following content:
+
+```
+exec i3
+```
+
+This way you can start the X server with the command `startx`.
+
 ### Compositor
 
 ```
@@ -163,7 +172,7 @@ $ sudo pacman -S noto-fonts
 ```
 
 ```
-$ yay -S nerd-fonts-fira-code
+$ yay -S nerd-fonts-complete
 ```
 
 ### Shell
@@ -205,7 +214,7 @@ $ sudo pacman -S polybar
 ### File Manager
 
 ```
-$ sudo pacman -S ranger ueberzug
+$ sudo pacman -S ranger
 ```
 
 For previews we also need **feh** and **Überzug**:
@@ -234,7 +243,8 @@ $ sudo pacman -S bat fzf ripgrep lsd htop nodejs npm yarn wget cmatrix neofetch
 
 What you also will need:
 
-- [vim-plug](https://github.com/junegunn/vim-plug)
+- [vim-plug](https://github.com/junegunn/vim-plug) or [paq-nvim](https://github.com/savq/paq-nvim)
 - [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [ranger_devicons](https://github.com/alexanderjeurissen/ranger_devicons)
