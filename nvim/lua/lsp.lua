@@ -12,69 +12,15 @@
 require("vars")
 require("mason").setup()
 require("inlay-hints").setup()
+require("lsp-format").setup()
 
 local lspconfig = require("lspconfig")
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local luasnip = require("luasnip")
 local cmp = require("cmp")
-
-local null_ls = require("null-ls")
-local prettier = require("prettier")
-
 local ih = require("inlay-hints")
 
 -- LSP
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "clangd", "rust_analyzer", "sumneko_lua", "tsserver" }
-
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        -- on_attach = my_custom_on_attach,
-        capabilities = capabilities,
-    })
-end
-
--- nvim-cmp setup
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    mapping = cmp.mapping.preset.insert({
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-    }),
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-    },
-})
 
 -- Mappings.
 local opts = { noremap = true, silent = true }
@@ -91,6 +37,9 @@ local on_attach = function(client, bufnr)
 
     -- Inline-hints
     ih.on_attach(client, bufnr)
+
+    -- LSP formatter
+    require("lsp-format").on_attach(client)
 
     -- Mappings.
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -111,6 +60,17 @@ local on_attach = function(client, bufnr)
     --kmap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+-- Language servers
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { "clangd", "rust_analyzer", "sumneko_lua", "tsserver" }
+
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup({
+        capabilities = capabilities,
+    })
+end
+
 local lsp_flags = {
     debounce_text_changes = 150,
 }
@@ -119,19 +79,20 @@ require("lspconfig")["sumneko_lua"].setup({
     flags = lsp_flags,
     settings = {
         Lua = {
+            format = {
+                enable = true,
+                defaultConfig = {
+                    indent_style = "space",
+                    quote_style = "double",
+
+                }
+            },
             diagnostics = {
                 globals = { "vim", "opt", "kmap" },
             },
             hint = {
                 enable = true,
             },
-        },
-    },
-    commands = {
-        Format = {
-            function()
-                require("stylua-nvim").format_file()
-            end,
         },
     },
 })
@@ -178,85 +139,42 @@ require("rust-tools").setup({
     },
 })
 
--- Null-ls settings
-local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
-local event = "BufWritePre" -- or "BufWritePost"
-local async = event == "BufWritePost"
-
-null_ls.setup({
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.keymap.set("n", "<Leader>f", function()
-                vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-            end, { buffer = bufnr, desc = "[lsp] format" })
-
-            -- format on save
-            vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-            vim.api.nvim_create_autocmd(event, {
-                buffer = bufnr,
-                group = group,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr, async = async })
-                end,
-                desc = "[lsp] format on save",
-            })
-        end
-
-        if client.supports_method("textDocument/rangeFormatting") then
-            vim.keymap.set("x", "<Leader>f", function()
-                vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-            end, { buffer = bufnr, desc = "[lsp] format" })
-        end
-    end,
-})
-
--- Prettier format settings
-prettier.setup({
-    bin = "prettier", -- or `'prettierd'` (v0.22+)
-    filetypes = {
-        "css",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "less",
-        "markdown",
-        "scss",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-    },
-    ["null-ls"] = {
-        condition = function()
-            return prettier.config_exists({
-                -- if `false`, skips checking `package.json` for `"prettier"` key
-                check_package_json = true,
-            })
+-- nvim-cmp setup
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
         end,
-        runtime_condition = function(params)
-            -- return false to skip running prettier
-            return true
-        end,
-        timeout = 5000,
     },
-    cli_options = {
-        arrow_parens = "always",
-        bracket_spacing = true,
-        bracket_same_line = false,
-        embedded_language_formatting = "auto",
-        end_of_line = "lf",
-        html_whitespace_sensitivity = "css",
-        jsx_single_quote = false,
-        print_width = 80,
-        prose_wrap = "preserve",
-        quote_props = "as-needed",
-        semi = true,
-        single_attribute_per_line = false,
-        single_quote = true,
-        tab_width = 4,
-        trailing_comma = "es5",
-        use_tabs = false,
-        vue_indent_script_and_style = false,
+    mapping = cmp.mapping.preset.insert({
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+    }),
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
     },
 })

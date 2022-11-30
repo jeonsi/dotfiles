@@ -13,18 +13,15 @@ require("vars")
 
 -- SCRIPTS
 
--- Format on save
-vim.cmd([[ autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
-
 -- Colorscheme
 opt.termguicolors = true
 vim.cmd("colorscheme everforest")
 
 -- Status line
 require("lualine").setup({
-    options = {
-        theme = "auto",
-    },
+	options = {
+		theme = "auto",
+	},
 })
 
 -- Run "xrdb" after writing .Xresources
@@ -35,30 +32,30 @@ g.NERDTreeShowHidden = 1
 
 -- TreeSitter settings
 require("nvim-treesitter.configs").setup({
-    -- A list of parser names, or "all"
-    ensure_installed = { "c", "lua", "rust", "bash", "javascript", "typescript", "html", "css" },
+	-- A list of parser names, or "all"
+	ensure_installed = { "c", "lua", "rust", "bash", "javascript", "typescript", "html", "css" },
 
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
 
-    -- Automatically install missing parsers when entering buffer
-    auto_install = true,
+	-- Automatically install missing parsers when entering buffer
+	auto_install = true,
 
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = {},
+	-- List of parsers to ignore installing (for "all")
+	ignore_install = {},
 
-    highlight = {
-        enable = true,
+	highlight = {
+		enable = true,
 
-        -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-        disable = function(lang, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-                return true
-            end
-        end,
+		-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+		disable = function(lang, buf)
+			local max_filesize = 100 * 1024 -- 100 KB
+			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+			if ok and stats and stats.size > max_filesize then
+				return true
+			end
+		end,
 
-        additional_vim_regex_highlighting = false,
-    },
+		additional_vim_regex_highlighting = false,
+	},
 })

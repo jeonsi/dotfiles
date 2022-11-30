@@ -15,9 +15,7 @@ require("paq")({
 
     -- LSP
     "neovim/nvim-lspconfig", -- LSP
-
-    "jose-elias-alvarez/null-ls.nvim",
-    "MunifTanjim/prettier.nvim", -- Prettier formatter
+    "lukas-reineke/lsp-format.nvim", -- LSP formatter
 
     "williamboman/mason.nvim", -- Manager for LSP, DAP, linters and formatters
 
@@ -27,7 +25,6 @@ require("paq")({
     "L3MON4D3/LuaSnip", -- Snippets plugin
 
     "simrat39/rust-tools.nvim", -- Rust language tools
-    "ckipp01/stylua-nvim", -- Lua formatter
 
     "simrat39/inlay-hints.nvim", -- Inline hints
 
