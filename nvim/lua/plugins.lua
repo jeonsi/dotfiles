@@ -15,9 +15,8 @@ require("paq")({
 
     -- LSP
     "neovim/nvim-lspconfig", -- LSP
-    "lukas-reineke/lsp-format.nvim", -- LSP formatter
-
     "williamboman/mason.nvim", -- Manager for LSP, DAP, linters and formatters
+    'jose-elias-alvarez/null-ls.nvim'; -- Null server
 
     "hrsh7th/nvim-cmp", -- Autocompletion plugin
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
