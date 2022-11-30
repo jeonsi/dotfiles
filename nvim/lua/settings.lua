@@ -1,24 +1,23 @@
--- 
+--
 -- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 -- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
 -- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
 -- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
 -- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---                                                   
+--
 -- Neovim Lua Config File by Arfan Zubi
 
-
 -- IMPORTS
-require('vars')
+require("vars")
 
 -- SETTINGS
 
 -- UTF8 encoding
-opt.encoding = 'UTF-8'
+opt.encoding = "UTF-8"
 
 -- Enabling clipboard
-opt.clipboard = 'unnamedplus'
+opt.clipboard = "unnamedplus"
 
 -- Line numbers
 opt.number = true
@@ -82,13 +81,13 @@ opt.history = 1000
 opt.wildmenu = true
 
 -- Bash-like completion
-opt.wildmode = 'list:longest'
+opt.wildmode = "list:longest"
 
 -- Ignoring files with certain extensions
-opt.wildignore = '*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx'
+opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Mouse support
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- Opening new split panes to right and below
 opt.splitright = true
