@@ -86,16 +86,13 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.rustfmt,
-		null_ls.builtins.formatting.beautysh,
 		null_ls.builtins.formatting.cbfmt,
-		null_ls.builtins.formatting.clang_format,
 	},
 })
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "clangd", "rust_analyzer", "sumneko_lua", "tsserver" }
+local servers = { "rust_analyzer", "sumneko_lua", "tsserver" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -107,6 +104,23 @@ end
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
+require("rust-tools").setup({
+	tools = {
+		on_initialized = function()
+			ih.set_all()
+		end,
+		inlay_hints = {
+			auto = false,
+		},
+	},
+	server = {
+		on_attach = on_attach,
+	},
+})
+require("lspconfig")["marksman"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+})
 require("lspconfig")["sumneko_lua"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
@@ -125,6 +139,7 @@ require("lspconfig")["tsserver"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	settings = {
+
 		javascript = {
 			inlayHints = {
 				includeInlayEnumMemberValueHints = true,
@@ -147,19 +162,6 @@ require("lspconfig")["tsserver"].setup({
 				includeInlayVariableTypeHints = true,
 			},
 		},
-	},
-})
-require("rust-tools").setup({
-	tools = {
-		on_initialized = function()
-			ih.set_all()
-		end,
-		inlay_hints = {
-			auto = false,
-		},
-	},
-	server = {
-		on_attach = on_attach,
 	},
 })
 
