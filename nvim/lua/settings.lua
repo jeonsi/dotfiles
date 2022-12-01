@@ -44,6 +44,9 @@ opt.expandtab = true
 opt.backup = false
 opt.writebackup = false
 
+-- Always show the signcolumn
+vim.opt.signcolumn = "yes"
+
 -- Do not let cursor scroll below or above N number of lines when scrolling
 opt.scrolloff = 10
 
