@@ -14,6 +14,7 @@ return require("packer").startup(function(use)
 
 	-- Appearance
 	use("neanias/everforest-nvim") -- Everforest theme
+
 	use({
 		"nvim-lualine/lualine.nvim", -- Status line
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -37,7 +38,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- Editing Tools
-	use("rstacruz/vim-closer")
+	use("lvimuser/lsp-inlayhints.nvim")
+	use("jiangmiao/auto-pairs")
 
 	-- LSP
 	use({

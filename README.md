@@ -6,7 +6,7 @@ I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook
 
 ## Installation
 
-ℹ️For help with the installation process watch my video: https://www.youtube.com/watch?v=cOobSmI-XgA&t=399s
+ℹ️ For help with the installation process watch my video: https://www.youtube.com/watch?v=cOobSmI-XgA&t=399s
 
 ### Console keyboard layout
 
@@ -60,7 +60,7 @@ We will do it according to the example layout of the Arch wiki:
 1. Press <kbd>n</kbd>.
 2. Press <kbd>Enter</kbd> to use the default first sector.
 3. Enter <kbd>Enter</kbd> to use the default last sector.
-4. Press <kbd>t</kbd> and choose 2 and write _linux_.
+4. Press <kbd>t</kbd> and choose 3 and write _linux_.
 
 **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
 
@@ -423,7 +423,7 @@ $ sudo pacman -S vlc
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf fd ripgrep lsd htop nodejs npm yarn wget cmatrix neofetch
+$ sudo pacman -S bat fzf fd ripgrep lsd htop nodejs npm yarn wget neofetch
 ```
 
 What you also will need:

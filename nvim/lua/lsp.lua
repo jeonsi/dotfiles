@@ -15,7 +15,6 @@ require("mason-lspconfig").setup()
 
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
-
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- LSP
@@ -29,9 +28,6 @@ local lsp_formatting = function(bufnr)
 end
 
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
 	-- Format on save
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -66,19 +62,36 @@ local on_attach = function(client, bufnr)
 end
 
 -- Languages
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+})
+
 lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.rust_analyzer.setup({
+lspconfig.remark_ls.setup({
 	on_attach = on_attach,
 })
 
 -- Null-ls
 null_ls.setup({
 	sources = {
+		-- Formatters
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettier,
+
+		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
+
+		-- Completion
 		null_ls.builtins.completion.spell,
+
+		-- Code Actions
+		null_ls.builtins.code_actions.eslint,
 	},
 })
