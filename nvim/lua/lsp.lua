@@ -82,8 +82,9 @@ lspconfig.remark_ls.setup({
 null_ls.setup({
 	sources = {
 		-- Formatters
-		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.stylua,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,

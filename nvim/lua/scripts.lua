@@ -11,6 +11,14 @@
 -- IMPORTS
 require("vars")
 
+-- SETUPS
+
+-- Nvim Autopairs
+require("nvim-autopairs").setup()
+
+-- Inlay hints
+require("lsp-inlayhints").setup()
+
 -- SCRIPTS
 
 -- Colorscheme
@@ -63,9 +71,7 @@ require("nvim-treesitter.configs").setup({
 -- COQ settings
 g.coq_settings = { auto_start = "shut-up" }
 
--- Inlay hints
-require("lsp-inlayhints").setup()
-
+-- Inlay Hints settings
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = "LspAttach_inlayhints",
