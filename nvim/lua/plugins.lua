@@ -22,8 +22,8 @@ return require("packer").startup(function(use)
 
 	-- Neovim Tools
 	use({
-		"preservim/nerdtree", -- NerdTree
-		"ryanoasis/vim-devicons", -- Icons for NerdTree
+		"nvim-tree/nvim-tree.lua",
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
 	use({

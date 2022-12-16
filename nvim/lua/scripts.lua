@@ -11,8 +11,6 @@
 -- IMPORTS
 require("vars")
 
--- SETUPS
-
 -- SCRIPTS
 
 -- Colorscheme

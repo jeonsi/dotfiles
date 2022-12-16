@@ -12,13 +12,17 @@
 require("vars")
 require("lsp-config")
 
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 
 -- SETUPS
+
+-- NvimTree
+require("nvim-tree").setup()
+
+-- Mason
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 -- Nvim Autopairs
 require("nvim-autopairs").setup()

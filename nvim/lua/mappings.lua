@@ -20,7 +20,7 @@ g.mapleader = ","
 --kmap.set("n", "<space>", ":")
 
 -- NerdTree
-kmap.set("n", "<leader>nt", ":NERDTreeToggle<cr>")
+kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
 
 -- Split navigation using CTRL + {j, k, h, l}
 kmap.set("n", "<c-j>", "<c-w>j")

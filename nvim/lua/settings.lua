@@ -13,6 +13,9 @@ require("vars")
 
 -- SETTINGS
 
+-- set termguicolors to enable highlight groups
+opt.termguicolors = true
+
 -- UTF8 encoding
 opt.encoding = "UTF-8"
 
@@ -95,3 +98,7 @@ opt.mouse = "a"
 -- Opening new split panes to right and below
 opt.splitright = true
 opt.splitbelow = true
+
+-- Disable netrw
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
