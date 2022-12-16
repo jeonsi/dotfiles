@@ -17,7 +17,7 @@ require("vars")
 g.mapleader = ","
 
 -- Space bar enters ":" in command mode
-kmap.set("n", "<space>", ":")
+--kmap.set("n", "<space>", ":")
 
 -- NerdTree
 kmap.set("n", "<leader>nt", ":NERDTreeToggle<cr>")
@@ -40,3 +40,10 @@ kmap.set("n", "<leader>ff", builtin.find_files, {})
 kmap.set("n", "<leader>fg", builtin.live_grep, {})
 kmap.set("n", "<leader>fb", builtin.buffers, {})
 kmap.set("n", "<leader>fh", builtin.help_tags, {})
+
+-- LSP
+local opts = { noremap = true, silent = true }
+kmap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+kmap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+kmap.set("n", "]d", vim.diagnostic.goto_next, opts)
+kmap.set("n", "<space>q", vim.diagnostic.setloclist, opts)

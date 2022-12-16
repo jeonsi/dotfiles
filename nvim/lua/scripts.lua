@@ -15,7 +15,7 @@ require("vars")
 
 -- Colorscheme
 opt.termguicolors = true
-vim.cmd("colorscheme everforest")
+cmd("colorscheme everforest")
 
 -- Status line
 require("lualine").setup({
@@ -25,7 +25,7 @@ require("lualine").setup({
 })
 
 -- Run "xrdb" after writing .Xresources
-vim.cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
+cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 -- Show hidden NerdTree files
 g.NERDTreeShowHidden = 1
@@ -33,7 +33,7 @@ g.NERDTreeShowHidden = 1
 -- TreeSitter settings
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all"
-	ensure_installed = { "c", "lua", "rust", "bash", "javascript", "typescript", "html", "css" },
+	ensure_installed = "all",
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -59,3 +59,6 @@ require("nvim-treesitter.configs").setup({
 		additional_vim_regex_highlighting = false,
 	},
 })
+
+-- COQ settings
+g.coq_settings = { auto_start = "shut-up" }
