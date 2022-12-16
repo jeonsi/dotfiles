@@ -38,7 +38,6 @@ return require("packer").startup(function(use)
 	})
 
 	-- Editing Tools
-	use("lvimuser/lsp-inlayhints.nvim")
 	use("windwp/nvim-autopairs")
 
 	-- LSP
