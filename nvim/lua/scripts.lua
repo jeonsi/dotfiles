@@ -13,9 +13,6 @@ require("vars")
 
 -- SETUPS
 
--- Nvim Autopairs
-require("nvim-autopairs").setup()
-
 -- SCRIPTS
 
 -- Colorscheme
