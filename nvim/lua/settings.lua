@@ -105,4 +105,3 @@ g.loaded_netrwPlugin = 1
 
 -- Settings for line highlighting
 opt.list = true
-opt.listchars:append("eol:↴")
