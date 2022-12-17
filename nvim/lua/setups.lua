@@ -34,6 +34,14 @@ require("lualine").setup({
 -- Nvim Autopairs
 require("nvim-autopairs").setup()
 
+-- Git signs
+require("gitsigns").setup()
+
+-- Line highlighting
+require("indent_blankline").setup({
+	show_end_of_line = true,
+})
+
 -- Languages
 lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,

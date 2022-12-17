@@ -22,7 +22,7 @@ return require("packer").startup(function(use)
 
 	-- Neovim Tools
 	use({
-		"nvim-tree/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua", -- Nvim Tree, NerdTree alternative
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
@@ -38,7 +38,13 @@ return require("packer").startup(function(use)
 	})
 
 	-- Editing Tools
-	use("windwp/nvim-autopairs")
+	use("windwp/nvim-autopairs") -- Auto closing brackets, paranthesis etc.
+	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
+
+	-- Git
+	use({
+		"lewis6991/gitsigns.nvim", -- Git signs
+	})
 
 	-- LSP
 	use({
