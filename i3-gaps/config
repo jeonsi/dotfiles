@@ -16,7 +16,7 @@ set $mod Mod4
 
 # Gap Size
 gaps inner 8
-gaps outer 4
+gaps outer 0
 
 # Hide Title Bar
 for_window [class="^.*"] border pixel 2
@@ -44,7 +44,7 @@ floating_minimum_size 450 x 450
 floating_maximum_size 1500 x 1500
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # start firefox
 bindsym $mod+w exec firefox
@@ -226,5 +226,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
-
 
