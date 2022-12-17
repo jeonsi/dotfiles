@@ -24,6 +24,13 @@ require("nvim-tree").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- Status line
+require("lualine").setup({
+	options = {
+		theme = "auto",
+	},
+})
+
 -- Nvim Autopairs
 require("nvim-autopairs").setup()
 

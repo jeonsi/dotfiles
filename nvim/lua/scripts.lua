@@ -17,13 +17,6 @@ require("vars")
 opt.termguicolors = true
 cmd("colorscheme everforest")
 
--- Status line
-require("lualine").setup({
-	options = {
-		theme = "auto",
-	},
-})
-
 -- Run "xrdb" after writing .Xresources
 cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
