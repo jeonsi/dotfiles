@@ -353,7 +353,7 @@ $ sudo pacman -S picom
 ### Font
 
 ```
-$ sudo pacman -S noto-fonts
+$ sudo pacman -S noto-fonts noto-fonts-emoji
 ```
 
 ```
