@@ -35,6 +35,11 @@ alias gc='git commit'
 alias gp='git push'
 alias gd='git diff * | bat'
 
+alias pu='sudo pacman -Syu'
+alias pi='sudo pacman -S'
+alias pr='sudo pacman -Rsu'
+alias pq='sudo pacman -Qe'
+
 alias b='bat'
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
