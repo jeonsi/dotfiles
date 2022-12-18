@@ -16,9 +16,6 @@ require("vars")
 -- set termguicolors to enable highlight groups
 opt.termguicolors = true
 
--- Hide End-Of-Buffer symbol (~)
-opt.fillchars:append({ eob = " " })
-
 -- UTF8 encoding
 opt.encoding = "UTF-8"
 
@@ -51,7 +48,7 @@ opt.backup = false
 opt.writebackup = false
 
 -- Always show the signcolumn
-vim.opt.signcolumn = "yes"
+opt.signcolumn = "yes"
 
 -- Do not let cursor scroll below or above N number of lines when scrolling
 opt.scrolloff = 10
@@ -97,6 +94,9 @@ opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Mouse support
 opt.mouse = "a"
+
+-- Hide End-Of-Buffer symbol (~)
+opt.fillchars:append({ eob = " " })
 
 -- Opening new split panes to right and below
 opt.splitright = true
