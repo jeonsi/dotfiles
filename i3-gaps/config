@@ -28,8 +28,8 @@ font xft:Fira Code Nerd Font 9
 # Color Settings
 # class                 border  bground text    indicator child_border
 client.focused          #A7C080 #A7C080 #2F383E #A7C080   #A7C080
-client.focused_inactive #2F383E #2F383E #859289 #2F383E   #2F383E
-client.unfocused        #2F383E #2F383E #859289 #2F383E   #2F383E
+client.focused_inactive #2F383E #2F383E #859289 #2F383E   #374247
+client.unfocused        #2F383E #2F383E #859289 #2F383E   #374247
 client.urgent           #E67E80 #E67E80 #FFFFFF #E67E80   #E67E80
 client.placeholder      #2F383E #2F383E #859289 #2F383E   #2F383E
 client.background       #2F383E
@@ -214,7 +214,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom --no-vsync
 
 # Setting the Wallpaper
-exec_always feh --bg-scale /home/arfan/Downloads/forest.jpg
+exec_always feh --bg-scale /home/arfan/Downloads/flowers.png
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
