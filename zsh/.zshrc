@@ -35,6 +35,7 @@ alias gc='git commit'
 alias gp='git push'
 alias gd='git diff * | bat'
 
+alias b='bat'
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # Colored Output
