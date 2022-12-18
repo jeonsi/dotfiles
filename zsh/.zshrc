@@ -50,6 +50,15 @@ export MANPAGER='less -R --use-color -Dd+r -Du+b'
 # Setting Default Editor
 export EDITOR='nvim'
 
+# File to store ZSH history
+export HISTFILE=~/.zsh_history
+
+# Number of commands loaded into memory from HISTFILE
+export HISTSIZE=1000
+
+# Maximum number of commands stores in HISTFILE
+export SAVEHIST=1000
+
 # ZSH Case-Insensitive Autocomplete
 autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -88,9 +97,6 @@ source /usr/share/fzf/completion.zsh
 
 # ZSH Autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# VIM Keybindings for ZSH
-#source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
