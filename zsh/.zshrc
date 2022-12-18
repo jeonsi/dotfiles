@@ -25,8 +25,15 @@ alias t='tree'
 alias rm='rm -v'
 alias open='xdg-open'
 
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
+alias gs='git status'
+alias ga='git add -A'
+alias gc='git commit'
+alias gp='git push'
+alias gd='git diff * | bat'
 
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
