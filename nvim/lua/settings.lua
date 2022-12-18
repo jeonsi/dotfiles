@@ -16,6 +16,9 @@ require("vars")
 -- set termguicolors to enable highlight groups
 opt.termguicolors = true
 
+-- Hide End-Of-Buffer symbol (~)
+opt.fillchars:append({ eob = " " })
+
 -- UTF8 encoding
 opt.encoding = "UTF-8"
 

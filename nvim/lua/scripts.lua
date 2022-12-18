@@ -14,7 +14,6 @@ require("vars")
 -- SCRIPTS
 
 -- Colorscheme
-opt.termguicolors = true
 cmd("colorscheme everforest")
 
 -- Run "xrdb" after writing .Xresources
