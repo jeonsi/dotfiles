@@ -10,7 +10,7 @@
 
 -- IMPORTS
 require("vars")
-require("lsp-config")
+require("lsp-config") -- local LSP config file
 
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
@@ -24,6 +24,11 @@ require("nvim-tree").setup()
 -- Mason
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+require("everforest").setup({
+	background = "medium",
+	transparent_background_level = 1,
+})
 
 -- Lualine status bar
 require("lualine").setup({
