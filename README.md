@@ -420,6 +420,10 @@ $ sudo pacman -S firefox
 $ sudo pacman -S vlc
 ```
 
+### Wallpapers
+
+Check these amazing wallpapers that harmonize with the Everforest theme: https://github.com/Apeiros-46B/everforest-walls
+
 ### Other Tools
 
 ```
