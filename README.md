@@ -375,7 +375,7 @@ $ chsh -s $(which zsh)
 ### Terminal
 
 ```
-$ sudo pacman -S rxvt-unicode alacritty
+$ sudo pacman -S rxvt-unicode alacritty kitty
 ```
 
 ### Editor
