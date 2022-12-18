@@ -8,11 +8,11 @@
 --
 -- Neovim Lua Config File by Arfan Zubi
 
--- PLUGINS
+-------- PLUGINS
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer
 
-	-- Appearance
+	-------- Appearance
 	use("neanias/everforest-nvim") -- Everforest theme
 
 	use({
@@ -20,7 +20,7 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	-- Neovim Tools
+	-------- Neovim Tools
 	use({
 		"nvim-tree/nvim-tree.lua", -- Nvim Tree, NerdTree alternative
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -37,16 +37,16 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	-- Editing Tools
+	------- Editing Tools
 	use("windwp/nvim-autopairs") -- Auto closing brackets, paranthesis etc.
 	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
 
-	-- Git
+	------- Git
 	use({
 		"lewis6991/gitsigns.nvim", -- Git signs
 	})
 
-	-- LSP
+	------- LSP
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",

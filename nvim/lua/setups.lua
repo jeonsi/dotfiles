@@ -24,10 +24,11 @@ require("nvim-tree").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
 
--- Status line
+-- Lualine status bar
 require("lualine").setup({
 	options = {
-		theme = "auto",
+		component_separators = "|",
+		section_separators = "",
 	},
 })
 
