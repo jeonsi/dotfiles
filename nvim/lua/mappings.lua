@@ -1,4 +1,3 @@
---
 -- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 -- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
 -- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
@@ -23,16 +22,16 @@ g.mapleader = ","
 kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
 
 -- Split navigation using CTRL + {j, k, h, l}
-kmap.set("n", "<c-j>", "<c-w>j")
-kmap.set("n", "<c-k>", "<c-w>k")
-kmap.set("n", "<c-h>", "<c-w>h")
-kmap.set("n", "<c-l>", "<c-w>l")
+kmap.set("n", "<up>", "<c-w>k")
+kmap.set("n", "<down>", "<c-w>j")
+kmap.set("n", "<right>", "<c-w>l")
+kmap.set("n", "<left>", "<c-w>h")
 
 -- Resize split windows using arrow keys
-kmap.set("n", "<up>", "<c-w>+")
-kmap.set("n", "<down>", "<c-w>-")
-kmap.set("n", "<right>", "<c-w>>")
-kmap.set("n", "<left>", "<c-w><")
+kmap.set("n", "<c-up>", "<c-w>-")
+kmap.set("n", "<c-down>", "<c-w>+")
+kmap.set("n", "<c-right>", "<c-w>>")
+kmap.set("n", "<c-left>", "<c-w><")
 
 -- Telescope
 local builtin = require("telescope.builtin")
