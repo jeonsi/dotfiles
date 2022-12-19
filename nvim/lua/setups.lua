@@ -14,7 +14,6 @@ require("lsp-config") -- local LSP config file
 
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
-local rt = require("rust-tools")
 
 -- SETUPS
 
@@ -50,16 +49,8 @@ require("indent_blankline").setup({
 })
 
 -- Languages
-rt.setup({
-	server = {
-		on_attach = on_attach,
-		function(_, bufnr)
-			-- Hover actions
-			kmap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-			-- Code action groups
-			kmap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-		end,
-	},
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
 })
 
 lspconfig.tsserver.setup({

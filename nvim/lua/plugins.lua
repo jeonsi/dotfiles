@@ -41,9 +41,6 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs") -- Auto closing brackets, paranthesis etc.
 	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
 
-	------- Language specific
-	use("simrat39/rust-tools.nvim") -- Rust tools
-
 	------- Git
 	use({
 		"lewis6991/gitsigns.nvim", -- Git signs
