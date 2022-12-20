@@ -87,7 +87,22 @@ $ swapon /dev/swap_partition
 For a minimal system download and install these packages:
 
 ```
-$ pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs dhcpcd networkmanager git neovim man-db man-pages texinfo
+$ pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs dhcpcd networkmanager sof-firmware git neovim man-db man-pages texinfo
+```
+
+⚠️ If you get errors due to key then do the following:
+
+1. Initialize _pacman_ keys and populate them:
+
+```
+pacman-key --init
+pacman-key --populate
+```
+
+2. Synchronize Arch keyring:
+
+```
+archlinux-keyring-wkd-sync
 ```
 
 ### Last steps
@@ -282,7 +297,6 @@ $ yay -S pa-applet-git
 ```
 $ sudo pacman -S openssh
 $ sudo pacman -S iw wpa_supplicant
-$ sudo pacman -S dhcpcd networkmanager
 ```
 
 NetworkManager Applet:
@@ -343,6 +357,22 @@ exec i3
 ```
 
 This way you can start the X server with the command `startx`.
+
+### Drivers
+
+If running outside UMT we need drivers:
+
+**Intel**:
+
+```
+sudo pacman -S mesa xf86-video-qxl intel-media-driver
+```
+
+**NVIDIA**:
+
+```
+sudo pacman -S libva-mesa-driver
+```
 
 ### Compositor
 
@@ -418,6 +448,12 @@ $ sudo pacman -S firefox
 
 ```
 $ sudo pacman -S vlc
+```
+
+### PDF Viewer
+
+```
+$ sudo pacman -S zathura
 ```
 
 ### Wallpapers
