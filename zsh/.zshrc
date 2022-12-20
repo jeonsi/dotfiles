@@ -1,13 +1,12 @@
-# 
+#
 # ███████╗███████╗██╗  ██╗██████╗  ██████╗
 # ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
-#   ███╔╝ ███████╗███████║██████╔╝██║     
-#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║     
+#   ███╔╝ ███████╗███████║██████╔╝██║
+#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║
 # ███████╗███████║██║  ██║██║  ██║╚██████╗
 # ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 #
 # ZSH Config File by Arfan Zubi
-                                        
 
 # Autostart X at Login
 if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
@@ -28,6 +27,7 @@ alias open='xdg-open'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias nv='neovide'
 
 alias gs='git status'
 alias ga='git add -A'
@@ -106,3 +106,4 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
