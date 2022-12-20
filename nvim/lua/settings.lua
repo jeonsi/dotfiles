@@ -16,6 +16,9 @@ require("vars")
 -- set termguicolors to enable highlight groups
 opt.termguicolors = true
 
+-- GUI settings
+opt.guifont = { "FiraCode Nerd Font", ":h8" }
+
 -- UTF8 encoding
 opt.encoding = "UTF-8"
 
@@ -108,3 +111,6 @@ g.loaded_netrwPlugin = 1
 
 -- Settings for line highlighting
 opt.list = true
+
+-- Settings for Neovide
+g.neovide_cursor_vfx_mode = "railgun"
