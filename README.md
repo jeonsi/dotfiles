@@ -336,6 +336,18 @@ Uncomment `Color` and add below it `ILoveCandy`.
 $ sudo systemctl enable fstrim.timer
 ```
 
+### Enable Time Synchronization
+
+```
+$ sudo systemctl enable systemd-timesync
+```
+
+Then enable NTP:
+
+```
+$ timedatectl set-ntp true
+```
+
 ## Graphical User Interface (GUI) Settings
 
 ### Xorg
