@@ -15,8 +15,8 @@ set $mod Mod4
 ## APPEARANCE
 
 # Gap Size
-gaps inner 8
-gaps outer 0
+gaps inner 12
+gaps outer 5
 
 # Hide Title Bar
 for_window [class="^.*"] border pixel 3
@@ -201,10 +201,10 @@ bindsym $mod+r mode "resize"
 ## DISPLAY SETTINGS
 
 # Keyboard Settings
-exec setxkbmap -model asus_laptop -layout ch,us
+exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
 
-# Set Resolution - see /etc/X11/xorg.conf.d/10-monitor.conf
-exec xrandr --output eDP1 --mode 1920x1080
+# Start up X session with multiple monitors
+exec --no-startup-id $HOME/.config/Xorg/toggle-external-monitor.sh
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -214,7 +214,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom --no-vsync
 
 # Setting the Wallpaper
-exec_always feh --bg-scale /home/arfan/Downloads/flowers.png
+exec_always feh --bg-fill /home/arfan/Downloads/flowers.png
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -225,6 +225,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 
