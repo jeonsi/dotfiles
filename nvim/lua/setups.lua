@@ -73,6 +73,10 @@ lspconfig.bashls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.html.setup({
+	on_attach = on_attach,
+})
+
 -- Null-ls
 null_ls.setup({
 	sources = {
