@@ -26,7 +26,7 @@ require("mason-lspconfig").setup()
 
 require("everforest").setup({
 	background = "medium",
-	transparent_background_level = 1,
+	transparent_background_level = 0,
 })
 
 -- Lualine status bar
@@ -69,6 +69,10 @@ lspconfig.remark_ls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.bashls.setup({
+	on_attach = on_attach,
+})
+
 -- Null-ls
 null_ls.setup({
 	sources = {
@@ -76,6 +80,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.shfmt,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
