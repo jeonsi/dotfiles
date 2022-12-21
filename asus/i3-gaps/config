@@ -200,24 +200,23 @@ bindsym $mod+r mode "resize"
 
 ## DISPLAY SETTINGS
 
+# Start XDG autostart .desktop files using dex
+exec --no-startup-id dex --autostart --environment i3
+
 # Keyboard Settings
 exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
 
-# Start up X session with multiple monitors
-exec --no-startup-id $HOME/.config/Xorg/toggle-external-monitor.sh
+# Exec polybar at startup and after refreshing i3
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+# Setting the Wallpaper
+exec_always --no-startup-id feh --bg-center $HOME/Downloads/flowers.png
 
 # Start Picom Compositor for Effects
 exec --no-startup-id picom --no-vsync
 
-# Setting the Wallpaper
-exec_always feh --bg-fill /home/arfan/Downloads/flowers.png
-
-# Exec polybar at startup and after refreshing i3
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Setup for multiple monitors
+exec --no-startup-id $HOME/.config/Xorg/toggle-external-monitor.sh
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -226,5 +225,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
-
