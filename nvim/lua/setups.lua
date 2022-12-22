@@ -65,7 +65,7 @@ lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.remark_ls.setup({
+lspconfig.marksman.setup({
 	on_attach = on_attach,
 })
 

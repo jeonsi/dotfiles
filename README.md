@@ -475,7 +475,7 @@ Check these amazing wallpapers that harmonize with the Everforest theme: https:/
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf fd ripgrep lsd htop nodejs npm yarn wget neofetch
+$ sudo pacman -S bat fzf fd ripgrep lsd tree htop nodejs npm yarn wget neofetch
 ```
 
 What you also will need:
