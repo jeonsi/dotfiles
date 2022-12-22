@@ -8,6 +8,7 @@
 #
 # ZSH Config File by Arfan Zubi
 
+
 # Autostart X at Login
 if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
     exec startx
@@ -42,6 +43,9 @@ alias pq='sudo pacman -Qe'
 
 alias b='bat'
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
+# System aliases
+alias standby='xset dpms force standby' 
 
 # Colored Output
 #alias ls='ls -laGH --color=auto'
