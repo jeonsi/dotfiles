@@ -3,8 +3,9 @@ intern=eDP1
 extern=HDMI2
 
 if xrandr | grep "$extern disconnected"; then
-    xrandr --output "$extern" --off --output "$intern" --auto
+	xrandr --output "$extern" --off --output "$intern" --auto
+	feh --bg-center $HOME/Downloads/flowers.png
 else
-    xrandr --output "$intern" --primary --auto --output "$extern" --above "$intern" --auto
-    feh --bg-center $HOME/Downloads/flowers.png $HOME/Downloads/flowers.png
+	xrandr --output "$intern" --primary --auto --output "$extern" --above "$intern" --auto
+	feh --bg-center $HOME/Downloads/flowers.png $HOME/Downloads/flowers.png
 fi

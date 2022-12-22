@@ -209,9 +209,6 @@ exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Setting the Wallpaper
-exec_always --no-startup-id feh --bg-center $HOME/Downloads/flowers.png
-
 # Start Picom Compositor for Effects
 exec --no-startup-id picom --no-vsync
 
