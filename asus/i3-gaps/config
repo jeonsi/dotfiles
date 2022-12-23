@@ -215,6 +215,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start Picom Compositor for Effects
 exec --no-startup-id picom --no-vsync
 
+# Start Redshift to adjust display temperature
+exec --no-startup-id redshift
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
