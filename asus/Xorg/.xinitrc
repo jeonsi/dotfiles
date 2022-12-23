@@ -14,8 +14,6 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-toggle-external-monitor=$HOME/.config/Xorg/toggle-external-monitor.sh
-
 # Merge in Defaults and Keymaps
 
 if [ -f $sysresources ]; then
