@@ -200,6 +200,9 @@ bindsym $mod+r mode "resize"
 
 ## DISPLAY SETTINGS
 
+# Setup for multiple monitors
+exec --no-startup-id $HOME/.config/Xorg/toggle-external-monitor.sh
+
 # Start XDG autostart .desktop files using dex
 exec --no-startup-id dex --autostart --environment i3
 
@@ -211,9 +214,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start Picom Compositor for Effects
 exec --no-startup-id picom --no-vsync
-
-# Setup for multiple monitors
-exec --no-startup-id $HOME/.config/Xorg/toggle-external-monitor.sh
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
