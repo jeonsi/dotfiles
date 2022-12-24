@@ -210,7 +210,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id feh --bg-fill $HOME/Downloads/japanese_store.jpg
 
 # Start Redshift to adjust display temperature
-exec_always --no-startup-id redshift
+exec --no-startup-id redshift -l 47.5:9.4 -t 5700:3600 -g 0.9 -m randr -v
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
