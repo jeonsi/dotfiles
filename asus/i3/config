@@ -206,8 +206,11 @@ exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
 # Start XDG autostart .desktop files using dex
 exec --no-startup-id dex --autostart --environment i3
 
+# Start feh to set wallpaper
+exec_always --no-startup-id feh --bg-fill $HOME/Downloads/japanese_store.jpg
+
 # Start Redshift to adjust display temperature
-exec --no-startup-id redshift
+exec_always --no-startup-id redshift
 
 # Exec polybar at startup and after refreshing i3
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
