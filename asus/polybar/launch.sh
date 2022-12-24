@@ -9,12 +9,11 @@ killall -q polybar
 #polybar everforest 2>&1 | tee -a /tmp/polybar.log & disown
 
 if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload everforest &
-  done
+	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+		MONITOR=$m polybar --reload everforest &
+	done
 else
-  polybar --reload everforest &
+	polybar --reload everforest &
 fi
 
 echo "Polybar launched..."
-
