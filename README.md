@@ -228,7 +228,7 @@ $ pacman -S sudo
 ### Add your personal user account
 
 ```
-$ useradd -m -g users -G wheel,storage,power,audio <your username>
+$ useradd -m -g users -G wheel,storage,power,video,audio <your username>
 $ passwd <your username> <your password>
 ```
 
