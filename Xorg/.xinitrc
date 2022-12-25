@@ -14,6 +14,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+intern=eDP1
+extern=HDMI2
+
 # Merge in Defaults and Keymaps
 
 if [ -f $sysresources ]; then
@@ -41,9 +44,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # Toggle external monitor
-intern=eDP1
-extern=HDMI2
-
 if xrandr | grep "$extern disconnected"; then
 	xrandr --output "$extern" --off --output "$intern" --auto
 else
