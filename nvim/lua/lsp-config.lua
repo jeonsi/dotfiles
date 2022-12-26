@@ -14,14 +14,6 @@ require("vars")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- LSP
-local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr,
-	})
-end
 
 on_attach = function(client, bufnr)
 	-- Format on save
@@ -31,7 +23,7 @@ on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				lsp_formatting(bufnr)
+				vim.lsp.buf.format({ bufnr = bufnr })
 			end,
 		})
 	end
