@@ -63,6 +63,7 @@ lspconfig.tsserver.setup({
 
 lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
+	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 
 lspconfig.marksman.setup({
@@ -83,12 +84,14 @@ null_ls.setup({
 		-- Formatters
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.shfmt,
+		null_ls.builtins.formatting.beautysh,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.diagnostics.shellcheck,
 
 		-- Code Actions
 		null_ls.builtins.code_actions.eslint,
+		null_ls.builtins.code_actions.shellcheck,
 	},
 })

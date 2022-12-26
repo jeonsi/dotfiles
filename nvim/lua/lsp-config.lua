@@ -11,9 +11,9 @@
 -- IMPORTS
 require("vars")
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 -- LSP
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 on_attach = function(client, bufnr)
 	-- Format on save
@@ -30,6 +30,7 @@ on_attach = function(client, bufnr)
 
 	-- Mappings.
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
 	kmap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	kmap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	kmap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -38,7 +39,7 @@ on_attach = function(client, bufnr)
 	kmap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
 	kmap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 	kmap.set("n", "<space>wl", function()
-		rint(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
 	kmap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	kmap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
