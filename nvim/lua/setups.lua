@@ -81,16 +81,12 @@ lspconfig.html.setup({
 null_ls.setup({
 	sources = {
 		-- Formatters
-		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.shfmt,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
-
-		-- Completion
-		null_ls.builtins.completion.spell,
 
 		-- Code Actions
 		null_ls.builtins.code_actions.eslint,
