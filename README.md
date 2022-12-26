@@ -377,13 +377,13 @@ If running outside UMT we need drivers:
 **Intel**:
 
 ```
-sudo pacman -S mesa xf86-video-qxl intel-media-driver
+sudo pacman -S xf86-video-intel xf86-video-qxl intel-media-driver mesa 
 ```
 
 **NVIDIA**:
 
 ```
-sudo pacman -S libva-mesa-driver
+sudo pacman -S xf86-video-nouveau nvidia libva-mesa-driver
 ```
 
 ### Compositor
@@ -475,7 +475,7 @@ Check these amazing wallpapers that harmonize with the Everforest theme: https:/
 ### Other Tools
 
 ```
-$ sudo pacman -S bat fzf fd ripgrep unzip lsd tree htop nodejs npm yarn wget neofetch
+$ sudo pacman -S tldr bat fzf fd ripgrep unzip lsd tree htop nodejs npm yarn wget neofetch
 ```
 
 What you also will need:
