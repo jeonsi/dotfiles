@@ -84,7 +84,7 @@ null_ls.setup({
 		-- Formatters
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.beautysh,
+		null_ls.builtins.formatting.shfmt,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
