@@ -14,6 +14,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+intern=eDP1
+extern=HDMI2
+
 # Merge in Defaults and Keymaps
 
 if [ -f $sysresources ]; then
@@ -32,24 +35,11 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
-# Start some nice Programs
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
-fi
-
 # Toggle external monitor
-intern=eDP1
-extern=HDMI2
-
 if xrandr | grep "$extern disconnected"; then
 	xrandr --output "$extern" --off --output "$intern" --auto
-	feh --bg-center $HOME/Downloads/flowers.png
 else
 	xrandr --output "$intern" --primary --auto --output "$extern" --above "$intern" --auto
-	feh --bg-center $HOME/Downloads/flowers.png $HOME/Downloads/flowers.png
 fi
 
 # Start i3 Window Manager when starting X Server
