@@ -353,7 +353,7 @@ $ timedatectl set-ntp true
 ### Xorg
 
 ```
-$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip
+$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip xdotool
 ```
 
 ### i3
@@ -475,7 +475,7 @@ Check these amazing wallpapers that harmonize with the Everforest theme: https:/
 ### Other Tools
 
 ```
-$ sudo pacman -S tldr bat fzf fd ripgrep unzip lsd tree htop nodejs npm yarn wget neofetch
+$ sudo pacman -S tldr bat fzf fd ripgrep unzip maim lsd tree htop nodejs npm yarn wget neofetch
 ```
 
 What you also will need:
