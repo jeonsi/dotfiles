@@ -12,6 +12,8 @@ Your Arch system should look something like this using my config files:
 
 ![Arch Everforest Rice](screenshot-20221230-145517Z-all.png)
 
+⚠️  *Caution:* If you are installing Arch on a virtual machine you won't have the blur effect like in the image above because there is no hardware acceleration.
+
 ## Installation
 
 ℹ️ For help with the installation process watch my video: https://www.youtube.com/watch?v=cOobSmI-XgA&t=399s
