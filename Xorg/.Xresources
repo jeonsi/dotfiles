@@ -32,7 +32,7 @@ URxvt.iso14755: false
 *.cursorColor: #FFFFFF
 
 ! black
-*.color0: #374247
+*.color0: #7A8478
 *.color8: #859289
 ! red
 *.color1: #E67E80
