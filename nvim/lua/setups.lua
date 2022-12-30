@@ -24,6 +24,10 @@ require("nvim-tree").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- Alpha start screen / dashboard
+require("alpha").setup(require("alpha.themes.startify").config)
+
+-- Everforest theme
 require("everforest").setup({
 	background = "medium",
 	transparent_background_level = 0,

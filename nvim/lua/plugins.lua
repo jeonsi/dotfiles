@@ -13,6 +13,11 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer
 
 	-------- Appearance
+	use({
+		"goolord/alpha-nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
+
 	use("neanias/everforest-nvim") -- Everforest theme
 
 	use({
