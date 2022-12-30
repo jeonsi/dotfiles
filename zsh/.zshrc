@@ -74,11 +74,10 @@ export SAVEHIST=1000
 # ZSH Case-Insensitive Autocomplete
 autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion::complete:*' gain-privileges 1
 compinit
 _comp_options+=(globdots)
-
-# Load Additional Glyphs for Fira Code Font
-source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 # Load Version Control System into Prompt
 autoload -Uz vcs_info
@@ -91,17 +90,17 @@ zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
 setopt PROMPT_SUBST
 PROMPT='%B%F{green}[%n%f@%F{green}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
 
+# Rehash so compinit can automatically find new executables in $PATHo
+zstyle ':completion:*' rehash true
+
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
 
 # Theme for bat (batcat)
 export BAT_THEME='base16'
 
-# Icons for lf file manager
-#[ -f ~/.config/LF_ICONS ] && {
-#	LF_ICONS="$(tr '\n' ':' <~/.config/LF_ICONS)" \
-#		&& export LF_ICONS
-#}
+# Load Additional Glyphs for Fira Code Font
+source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 # Keybindings for FZF
 source /usr/share/fzf/key-bindings.zsh
