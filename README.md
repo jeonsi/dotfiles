@@ -4,6 +4,14 @@ This is a straight-forward guide for ricing Arch Linux with the [Everforest](htt
 
 I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook Air M1 (2020). This guide should also work with the new Macbook Air M2 and the Pro versions.
 
+Also in the directory `asus` you will find configurations for Arch Linux on bare metal. The configurations for your system may vary.
+
+## What's the final result?
+
+Your Arch system should look something like this using my config files:
+
+![Arch Everforest Rice](screenshot-20221230-145517Z-all.png)
+
 ## Installation
 
 ℹ️ For help with the installation process watch my video: https://www.youtube.com/watch?v=cOobSmI-XgA&t=399s
