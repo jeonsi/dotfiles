@@ -62,7 +62,7 @@ export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Setting Default Editor
 export EDITOR='nvim'
-export VISUAL='neovide'
+export VISUAL='nvim'
 
 # File to store ZSH history
 export HISTFILE=~/.zsh_history
