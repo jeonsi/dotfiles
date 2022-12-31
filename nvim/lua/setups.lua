@@ -74,6 +74,10 @@ lspconfig.marksman.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.ltex.setup({
+	on_attach = on_attach,
+})
+
 lspconfig.bashls.setup({
 	on_attach = on_attach,
 })
@@ -89,10 +93,12 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.shfmt,
+		null_ls.builtins.formatting.latexindent,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.diagnostics.codespell,
 
 		-- Code Actions
 		null_ls.builtins.code_actions.eslint,
