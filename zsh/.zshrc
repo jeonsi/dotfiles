@@ -97,7 +97,7 @@ precmd() { vcs_info }
 
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{green}[%n%f@%F{green}%m]%f in %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
+PROMPT='%B%F{green}[%n%f@%F{green}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
 
 # Load Additional Glyphs for Fira Code Font
 source ~/.local/share/icons-in-terminal/icons_bash.sh
