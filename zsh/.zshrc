@@ -49,18 +49,20 @@ alias z='zathura'
 # System aliases
 alias standby='xset dpms force standby' 
 
-# Colored Output
+# Colored output
 #alias ls='ls -laGH --color=auto'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 
+# Colored pagers
 export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER='less -R --use-color -Dd+r -Du+b'
 #export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Setting Default Editor
 export EDITOR='nvim'
+export VISUAL='neovide'
 
 # File to store ZSH history
 export HISTFILE=~/.zsh_history
@@ -71,11 +73,21 @@ export HISTSIZE=1000
 # Maximum number of commands stores in HISTFILE
 export SAVEHIST=1000
 
-# ZSH Case-Insensitive Autocomplete
+# Setting default Ranger RC to false to avoid loading it twice
+export RANGER_LOAD_DEFAULT_RC='false'
+
+# Theme for bat (batcat)
+export BAT_THEME='base16'
+
+# Loading ZSH modules
 autoload -Uz compinit
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':completion:*' rehash true                      # Rehash so compinit can automatically find new executables in $PATH
+zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '    # Set up Git Branch Details into Prompt
+
 compinit
 _comp_options+=(globdots)
 
@@ -83,21 +95,9 @@ _comp_options+=(globdots)
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-# Set up Git Branch Details into Prompt
-zstyle ':vcs_info:git:*' formats 'on %F{red} %b%f '
-
 # Prompt Appearance
 setopt PROMPT_SUBST
-PROMPT='%B%F{green}[%n%f@%F{green}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
-
-# Rehash so compinit can automatically find new executables in $PATHo
-zstyle ':completion:*' rehash true
-
-# Setting default Ranger RC to false to avoid loading it twice
-export RANGER_LOAD_DEFAULT_RC='false'
-
-# Theme for bat (batcat)
-export BAT_THEME='base16'
+PROMPT='%B%F{green}[%n%f@%F{green}%m]%f in %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
 
 # Load Additional Glyphs for Fira Code Font
 source ~/.local/share/icons-in-terminal/icons_bash.sh
