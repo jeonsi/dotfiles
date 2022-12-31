@@ -28,8 +28,8 @@ font xft:Fira Code Nerd Font 11
 # Color Settings
 # class                 border  bground text    indicator child_border
 client.focused          #A7C080 #A7C080 #2F383E #A7C080   #A7C080
-client.focused_inactive #2F383E #2F383E #859289 #2F383E   #3D484D
-client.unfocused        #2F383E #2F383E #859289 #2F383E   #3D484D
+client.focused_inactive #3D484D #2F383E #859289 #3D484D   #3D484D
+client.unfocused        #3D484D #2F383E #859289 #3D484D   #3D484D
 client.urgent           #E67E80 #E67E80 #FFFFFF #E67E80   #E67E80
 client.placeholder      #2F383E #2F383E #859289 #2F383E   #2F383E
 client.background       #2F383E
