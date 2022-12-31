@@ -475,7 +475,7 @@ $ sudo pacman -S vlc
 ### PDF Viewer
 
 ```
-$ sudo pacman -S zathura
+$ sudo pacman -S zathura zathura-pdf-mupdf
 ```
 
 ### Wallpapers
