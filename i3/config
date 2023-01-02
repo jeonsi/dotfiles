@@ -214,13 +214,13 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
 
 # Start feh to set wallpaper
-exec --no-startup-id feh --bg-fill $HOME/Downloads/flowers.png
+exec_always --no-startup-id feh --bg-center --no-xinerama $HOME/Dokumente/wallpapers/flowers.png
 
 # Start Picom Compositor for Effects
 exec --no-startup-id picom --no-vsync
 
 # Exec polybar at startup and after refreshing i3
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start Redshift to adjust display temperature
 exec --no-startup-id redshift -l 47.5:9.4 -t 5700:3600 -g 0.9 -m randr -v
