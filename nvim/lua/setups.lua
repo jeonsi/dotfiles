@@ -52,6 +52,9 @@ require("indent_blankline").setup({
 	char = "┊",
 })
 
+-- Hex color highlighting
+require("colorizer").setup()
+
 -- Languages
 lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,
