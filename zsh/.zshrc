@@ -76,9 +76,6 @@ export SAVEHIST=1000
 # Setting default Ranger RC to false to avoid loading it twice
 export RANGER_LOAD_DEFAULT_RC='false'
 
-# Theme for bat (batcat)
-export BAT_THEME='base16'
-
 # Loading ZSH modules
 autoload -Uz compinit
 
