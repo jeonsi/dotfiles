@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
 
 	-------- Appearance
 	use({
-		"goolord/alpha-nvim",
+		"goolord/alpha-nvim", -- Startup screen
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
 	})
 
 	------- Editing Tools
-	use("windwp/nvim-autopairs") -- Auto closing brackets, paranthesis etc.
+	use("windwp/nvim-autopairs") -- Auto closing brackets, parenthesis etc.
 	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
 	use("norcalli/nvim-colorizer.lua") -- Hex color highlighting
 
@@ -54,19 +54,14 @@ return require("packer").startup(function(use)
 
 	------- LSP
 	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim", -- LSP packet manager
+		"williamboman/mason-lspconfig.nvim", -- lspconfig integration
+		"neovim/nvim-lspconfig", -- LSP configuration
 	})
 
-	use({
-		"ms-jpq/coq_nvim",
-		branch = "coq",
-		"ms-jpq/coq.artifacts",
-		branch = "artifacts", -- 9000+ snippets
-		"ms-jpq/coq.thirdparty",
-		branch = "3p",
-	})
+	use({ "ms-jpq/coq_nvim", branch = "coq" }) -- Autocompletion
+	use({ "ms-jpq/coq.artifacts", branch = "artifacts" }) -- 9000+ snippets
+	use({ "ms-jpq/coq.thirdparty", branch = "3p" }) -- Dependencies
 
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatter and diagnostics
 end)
