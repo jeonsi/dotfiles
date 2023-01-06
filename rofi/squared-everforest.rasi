@@ -27,32 +27,32 @@ window {
     width:          550;
     y-offset:       0;
 
-    border:            3;
+    border:         3;
     border-color:   #A7C080;
 
     background-color:   @bg0;
 }
 
 configuration {
-  drun {
-    display-name: "";
-  }
+    drun {
+        display-name: "";
+    }
 
-  run {
-    display-name: "";
-  }
+    run {
+        display-name: "";
+    }
 
-  window {
-    display-name: "";
-  }
+    window {
+        display-name: "";
+    }
 
-  ssh {
-    display-name: "";
-  }
+    ssh {
+        display-name: "";
+    }
 
-  filebrowser {
-    display-name: "";
-  }
+    filebrowser {
+        display-name: "";
+    }
 }
 
 inputbar {
