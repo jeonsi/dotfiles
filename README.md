@@ -492,10 +492,10 @@ $ sudo pacman -S tldr fzf tar gzip htop neofetch
 
 - _tldr_: Commands cheat sheet
 - _fzf_: Fuzzy finder
-- _htop_: CLI task manager
-- _neofetch_: System information
 - _tar_: Enzipping/Unzipping
 - _gzip_: Enzipping/Unzipping
+- _htop_: CLI task manager
+- _neofetch_: System information
 
 #### Alternatives to traditional commands
 
