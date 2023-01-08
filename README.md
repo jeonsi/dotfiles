@@ -484,9 +484,43 @@ Check these amazing wallpapers that harmonize with the Everforest theme: https:/
 
 ### Other Tools
 
+#### Utilities
+
 ```
-$ sudo pacman -S tldr bat fzf fd ripgrep unzip maim lsd tree htop nodejs npm yarn wget neofetch
+$ sudo pacman -S tldr fzf tar gzip htop neofetch
 ```
+
+_tldr_: Commands cheat sheet
+_fzf_: Fuzzy finder
+_htop_: CLI task manager
+_neofetch_: System information
+_tar_: Enzipping/Unzipping
+_gzip_: Enzipping/Unzipping
+
+```
+$ sudo pacman -S fd ripgrep bat lsd
+```
+
+_fd_: Alternative to _find_ command
+_ripgrep_: Alternative to _grep_ command
+_bat_: Alternative to _cat_ command
+_lsd_: Alternative to _ls_ command
+
+```
+$ sudo pacman -S maim
+```
+
+_maim_: Screenshot utiliy
+
+```
+$ sudo pacman -S go luarocks ruby rubygems composer php nodejs npm yarn python python-pip jre-openjdk jdk-openjdk julia wget curl
+```
+
+```
+$ yay -S powershell-bin
+```
+
+These programming languages, protocols or shells are not that important to install if you don't need them. I installed all of them to avoid warnings in the _mason.nvim report_ when running the `:checkhealth` command in Neovim.
 
 What you also will need:
 
