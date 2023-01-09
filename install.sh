@@ -41,9 +41,15 @@ function install() {
 
 	if [[ -d $DOWNLOAD_DIR ]]; then
 		echo "${ylw}Copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}${normal}"
-		cp -a "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR"
-		sudo cp -a "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
-        cp -a "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+		cp -av "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR"
+
+		echo "${ylw}Copying files to other directories${normal}"
+		sudo cp -av "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
+		if [[ ! -d "$HOME/.local/share/rofi" ]]; then
+			mkdir -p "$HOME/.local/share/rofi/themes"
+			cp -av "$DOWNLOAD_DIR/dotfiles/rofi/squared-everforest.rasi" "$HOME/.local/share/rofi/themes/squared-everforest.rasi"
+		fi
+		cp -av "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 
 		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
@@ -60,7 +66,7 @@ function install() {
 		sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
 
 		if [[ -d /usr/share/icons-in-terminal ]]; then
-            cd "/usr/share/icons-in-terminal" || exit 1
+			cd "/usr/share/icons-in-terminal" || exit 1
 			/usr/share/icons-in-terminal/install.sh
 		fi
 
@@ -87,7 +93,7 @@ while true; do
 		install
 		rm_install_file
 
-        echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
+		echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
 		exit 0
 		;;
 	[Nn]* | "")
