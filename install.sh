@@ -61,7 +61,7 @@ function install() {
 
 		if [[ -d /usr/share/icons-in-terminal ]]; then
             cd "/usr/share/icons-in-terminal" || exit 1
-			sudo /usr/share/icons-in-terminal/install.sh
+			/usr/share/icons-in-terminal/install.sh
 		fi
 
 	else
