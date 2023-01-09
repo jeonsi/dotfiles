@@ -98,6 +98,9 @@ precmd() { vcs_info }
 setopt PROMPT_SUBST
 PROMPT='%B%F{green}[%n%f@%F{green}%m]%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
 
+# XDG user dirs
+source ~/.config/user-dirs.dirs
+
 # Load Additional Glyphs for Fira Code Font
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 
