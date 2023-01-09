@@ -23,7 +23,7 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s
 " \
 	"EVERFOREST THEME FOR ARCH LINUX Version 1.0" \
 	"Author: Arfan Zubi" \
-	"License: GNU General Public License"
+	"License: 2023 GNU General Public License"
 
 # Installer
 function install() {
@@ -42,8 +42,8 @@ function install() {
 	if [[ -d $DOWNLOAD_DIR ]]; then
 		echo "${ylw}Copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}${normal}"
 		cp -a "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR"
-		cp -a "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
-        cp -a "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME"
+		sudo cp -a "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
+        cp -a "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 
 		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
@@ -57,9 +57,10 @@ function install() {
 		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
 		git clone https://github.com/alexanderjeurissen/ranger_devicons "$CONFIG_DIR/ranger/plugins/ranger_devicons"
 
-		git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share"
+		sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
 
 		if [[ -d /usr/share/icons-in-terminal ]]; then
+            cd "/usr/share/icons-in-terminal" || exit 1
 			sudo /usr/share/icons-in-terminal/install.sh
 		fi
 
