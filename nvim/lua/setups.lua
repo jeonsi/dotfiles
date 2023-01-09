@@ -22,7 +22,20 @@ require("nvim-tree").setup()
 
 -- Mason
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"bashls",
+		"clangd",
+		"cssls",
+		"html",
+		"ltex",
+		"marksman",
+		"rust_analyzer",
+		"sumneko_lua",
+		"tsserver",
+		"yamlls",
+	},
+})
 
 -- Alpha start screen / dashboard
 require("alpha").setup(require("alpha.themes.startify").config)

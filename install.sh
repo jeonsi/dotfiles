@@ -43,12 +43,13 @@ function install() {
 		echo "${ylw}Copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}${normal}"
 		cp -a "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR"
 		cp -a "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
+        cp -a "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME"
 
 		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
 
 		echo "${ylw}Removing some unnecessary files...${normal}"
-		rm -rfv asus Xorg urxvt i3/i3status screenshot-20221230-145517Z-all.png nvim/init.vim nvim/coc-settings.json install.sh
+		rm -rfv asus Xorg urxvt i3/i3status screenshot-20221230-145517Z-all.png nvim/init.vim nvim/coc-settings.json install.sh zsh
 
 		echo "${ylw}Installing shell tools${normal}"
 		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -84,6 +85,8 @@ while true; do
 	[Yy]*)
 		install
 		rm_install_file
+
+        echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
 		exit 0
 		;;
 	[Nn]* | "")
