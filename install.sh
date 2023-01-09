@@ -9,9 +9,9 @@ ylw=$(tput setaf 3)
 gry=$(tput setaf 8)
 
 CONFIG_DIR=$HOME/.config
-DOWNLOADS=$XDG_DOWNLOAD_DIR
+DOWNLOAD_DIR=$HOME/Downloads
 
-printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n\n" "
+printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
 
 ███████╗██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗███████╗████████╗
 ██╔════╝██║   ██║██╔════╝██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝
@@ -23,28 +23,28 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n\n" "
 " \
 	"EVERFOREST THEME FOR ARCH LINUX Version 1.0" \
 	"Author: Arfan Zubi" \
-    "License: GNU General Public License"
+	"License: GNU General Public License"
 
 # Installer
 function install() {
 	if [[ -d "$CONFIG_DIR" ]]; then
 		echo "${ylw}$CONFIG_DIR does already exist, deleting all files...${normal}"
-		rm -rfv "$HOME/.config"
+		rm -rfv "$CONFIG_DIR"
 	fi
 
 	echo "${ylw}Creating new $CONFIG_DIR directory...${normal}"
-	mkdir -p "$HOME/.config"
+	mkdir -p "$CONFIG_DIR"
 
 	echo "${ylw}Creating XDG user directories...${normal}"
 	xdg-user-dirs-update
 	echo "${ylw}Done!${normal}"
 
-	if [[ -d $DOWNLOADS ]]; then
-        echo "${ylw}Copying files from ${DOWNLOADS} to ${CONFIG_DIR}${normal}"
-		cp -a "$DOWNLOADS/dotfiles/." "$HOME/.config"
-        cp -a "$DOWNLOADS/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
+	if [[ -d $DOWNLOAD_DIR ]]; then
+		echo "${ylw}Copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}${normal}"
+		cp -a "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR"
+		cp -a "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
 
-		cd "$HOME/.config" || exit 1
+		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
 
 		echo "${ylw}Removing some unnecessary files...${normal}"
@@ -54,7 +54,7 @@ function install() {
 		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 		git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
 		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
-		git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME/.config/ranger/plugins/ranger_devicons"
+		git clone https://github.com/alexanderjeurissen/ranger_devicons "$CONFIG_DIR/ranger/plugins/ranger_devicons"
 
 		git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share"
 
@@ -63,16 +63,16 @@ function install() {
 		fi
 
 	else
-        echo "${bold}${red}dotfiles directory not found in your Downloads folder! Make sure you cloned the dotfiles (git clone https://github.com/3rfaan/dotfiles.git) and you have xdg-user-dirs installed and run xdg-user-dirs-update!${normal}"
+		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
 		exit 1
 	fi
 }
 
 # Removing install files after moving them to .config
 function rm_install_file() {
-	if [[ -d $DOWNLOADS/dotfiles ]]; then
+	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Removing installation files...${normal}"
-		rm -rf "$DOWNLOADS/dotfiles"
+		rm -rf "$DOWNLOAD_DIR/dotfiles"
 	fi
 }
 
@@ -86,10 +86,10 @@ while true; do
 		rm_install_file
 		exit 0
 		;;
-	[Nn]*)
-		echo Aborting installation...
+	[Nn]* | "")
+		echo "Aborting installation..."
 		exit 1
 		;;
-	*) echo "Please answer yes or no!" ;;
+	*) echo "Please enter [y]es or [n]o!" ;;
 	esac
 done
