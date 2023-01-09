@@ -14,7 +14,7 @@ Your Arch system should look something like this using my config files:
 
 ⚠️ _Caution:_ If you are installing Arch on a virtual machine you won't have the blur effect like in the image above because there is no hardware acceleration.
 
-## Installation
+## Arch Installation Guide
 
 ℹ️ For help with the installation process watch my video: https://www.youtube.com/watch?v=cOobSmI-XgA&t=399s
 
@@ -528,7 +528,16 @@ $ yay -S powershell-bin
 
 These programming languages, protocols or shells are not that important to install if you don't need them. I installed all of them to avoid warnings in the _mason.nvim report_ when running the `:checkhealth` command in Neovim.
 
-What you also will need:
+## Config files
+
+You can either clone the repository and move the files manually to your _~/.config_ directory or you could use the installer:
+
+```
+$ git clone https://github.com/3rfaan/dotfiles.git ~/Downloads && cd Downloads
+$ ./install.sh
+```
+
+If you want to copy the config files manually you also have to install these packages manually:
 
 - [Packer](https://github.com/wbthomason/packer.nvim)
 - [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
