@@ -49,6 +49,7 @@ function install() {
 			mkdir -p "$HOME/.local/share/rofi/themes"
 			cp -av "$DOWNLOAD_DIR/dotfiles/rofi/squared-everforest.rasi" "$HOME/.local/share/rofi/themes/squared-everforest.rasi"
 		fi
+        cp -av "$DOWNLOAD_DIR/dotfiles/Xorg/.xinitrc" "$HOME/.xinitrc"
 		cp -av "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 
 		cd "$CONFIG_DIR" || exit 1
