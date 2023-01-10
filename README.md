@@ -6,7 +6,7 @@ I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook
 
 Also in the directory `asus` you will find configurations for Arch Linux on bare metal. The configurations for your system may vary.
 
-ℹ️ *If you already have a running Arch system with the necessary packets installed, you can go to the [Quick Ricing](#Quick Ricing) section.*
+ℹ️  **If you already have a running Arch system with the necessary packets installed, you can go to the [Quick Ricing](#quick-ricing) section.**
 
 ## What's the final result?
 
