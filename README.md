@@ -6,6 +6,8 @@ I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook
 
 Also in the directory `asus` you will find configurations for Arch Linux on bare metal. The configurations for your system may vary.
 
+ℹ️ *If you already have a running Arch system with the necessary packets installed, you can go to the [Quick Ricing](#Quick Ricing) section.*
+
 ## What's the final result?
 
 Your Arch system should look something like this using my config files:
@@ -528,7 +530,7 @@ $ yay -S powershell-bin
 
 These programming languages, protocols or shells are not that important to install if you don't need them. I installed all of them to avoid warnings in the _mason.nvim report_ when running the `:checkhealth` command in Neovim.
 
-## Config files
+## Quick Ricing
 
 You can either clone the repository and move the files manually to your _~/.config_ directory or you could use the installer:
 
