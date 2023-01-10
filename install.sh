@@ -56,7 +56,7 @@ function install() {
 		echo "${ylw}Changed directory to $(pwd)${normal}"
 
 		echo "${ylw}Removing some unnecessary files...${normal}"
-		rm -rfv asus Xorg urxvt i3/i3status screenshot-20221230-145517Z-all.png nvim/init.vim nvim/coc-settings.json install.sh zsh
+		rm -rfv asus Xorg urxvt lf i3/i3status screenshot-20221230-145517Z-all.png nvim/init.vim nvim/coc-settings.json install.sh zsh
 
 		echo "${ylw}Installing shell tools${normal}"
 		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
