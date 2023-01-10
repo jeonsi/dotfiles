@@ -533,7 +533,12 @@ These programming languages, protocols or shells are not that important to insta
 You can either clone the repository and move the files manually to your _~/.config_ directory or you could use the installer:
 
 ```
-$ git clone https://github.com/3rfaan/dotfiles.git ~/Downloads && cd Downloads
+$ git clone https://github.com/3rfaan/dotfiles.git ~/Downloads/dotfiles && cd ~/Downloads/dotfiles
+```
+
+Then run the _install.sh_ script:
+
+```
 $ ./install.sh
 ```
 
