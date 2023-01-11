@@ -13,11 +13,8 @@ require("vars")
 
 -- SETTINGS
 
--- set termguicolors to enable highlight groups
+-- Set termguicolors to enable highlight groups
 opt.termguicolors = true
-
--- GUI settings
-opt.guifont = { "FiraCode Nerd Font", ":h8" }
 
 -- UTF8 encoding
 opt.encoding = "UTF-8"
@@ -62,10 +59,13 @@ opt.wrap = true
 -- Preserve indentation of virtual line
 opt.breakindent = true
 
+-- Search highlighting
+opt.hlsearch = false
+
 -- Incrementally highlight matching characters while typing
 opt.incsearch = true
 
--- Ignoring captial letters during search
+-- Ignoring capital letters during search
 opt.ignorecase = true
 
 -- Overriding ignorecase option if searching for capital letters
@@ -75,13 +75,10 @@ opt.smartcase = true
 opt.showcmd = true
 
 -- Showing mode on last line
-opt.showmode = true
+opt.showmode = false
 
 -- Showing matching words during search
 opt.showmatch = true
-
--- Search highlighting
-opt.hlsearch = false
 
 -- Command history
 opt.history = 1000
@@ -111,6 +108,9 @@ g.loaded_netrwPlugin = 1
 
 -- Settings for line highlighting
 opt.list = true
+
+-- GUI settings
+opt.guifont = { "FiraCode Nerd Font", ":h8" }
 
 -- Settings for Neovide
 g.neovide_cursor_vfx_mode = "railgun"

@@ -27,14 +27,19 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"clangd",
 		"cssls",
+		"dotls",
+		"eslint",
 		"html",
+		"jsonls",
 		"ltex",
 		"marksman",
 		"rust_analyzer",
+		"sqlls",
 		"sumneko_lua",
 		"tsserver",
 		"yamlls",
 	},
+	automatic_installation = true,
 })
 
 -- Alpha start screen / dashboard
@@ -110,7 +115,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.shfmt,
-		null_ls.builtins.formatting.latexindent,
 
 		-- Diagnostics
 		null_ls.builtins.diagnostics.eslint,
