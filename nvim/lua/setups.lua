@@ -92,6 +92,7 @@ lspconfig.marksman.setup({
 
 lspconfig.ltex.setup({
 	on_attach = on_attach,
+	filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "text" },
 })
 
 lspconfig.bashls.setup({
