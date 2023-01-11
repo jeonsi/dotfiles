@@ -510,7 +510,7 @@ $ sudo pacman -S fd ripgrep bat lsd
 - _bat_: Alternative to _cat_ command
 - _lsd_: Alternative to _ls_ command
 
-#### GUI utilites
+#### GUI utilities
 
 ```
 $ sudo pacman -S maim
