@@ -7,8 +7,8 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
 -- Neovim Lua Config File by Arfan Zubi
+-- PLUGINS
 
--------- PLUGINS
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer
 

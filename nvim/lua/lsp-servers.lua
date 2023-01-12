@@ -7,29 +7,43 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
 -- Neovim Lua Config File by Arfan Zubi
--- MAPPINGS
+-- LANGUAGE SERVERS
 
--- Leader
-g.mapleader = ","
+require("lsp-config-setup") -- local LSP config file
 
--- NerdTree
-kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
+local lspconfig = require("lspconfig")
 
--- Split navigation using CTRL + {j, k, h, l}
-kmap.set("n", "<up>", "<c-w>k")
-kmap.set("n", "<down>", "<c-w>j")
-kmap.set("n", "<right>", "<c-w>l")
-kmap.set("n", "<left>", "<c-w>h")
+-- LSP servers
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+})
 
--- Resize split windows using arrow keys
-kmap.set("n", "<c-up>", "<c-w>-")
-kmap.set("n", "<c-down>", "<c-w>+")
-kmap.set("n", "<c-right>", "<c-w>>")
-kmap.set("n", "<c-left>", "<c-w><")
+lspconfig.clangd.setup({
+	on_attach = on_attach,
+})
 
--- Telescope
-local builtin = require("telescope.builtin")
-kmap.set("n", "<leader>ff", builtin.find_files, {})
-kmap.set("n", "<leader>fg", builtin.live_grep, {})
-kmap.set("n", "<leader>fb", builtin.buffers, {})
-kmap.set("n", "<leader>fh", builtin.help_tags, {})
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.sumneko_lua.setup({
+	on_attach = on_attach,
+	settings = { Lua = { diagnostics = { globals = { "vim", "opt", "g", "kmap", "cmd" } } } },
+})
+
+lspconfig.marksman.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.ltex.setup({
+	on_attach = on_attach,
+	filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "text" },
+})
+
+lspconfig.bashls.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.html.setup({
+	on_attach = on_attach,
+})

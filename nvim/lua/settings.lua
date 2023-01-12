@@ -7,10 +7,6 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
 -- Neovim Lua Config File by Arfan Zubi
-
--- IMPORTS
-require("vars")
-
 -- SETTINGS
 
 -- Set termguicolors to enable highlight groups
@@ -105,6 +101,12 @@ opt.splitbelow = true
 -- Disable netrw
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+
+-- Show hidden NerdTree files
+g.NERDTreeShowHidden = 1
+
+-- COQ settings
+g.coq_settings = { auto_start = "shut-up" }
 
 -- Settings for line highlighting
 opt.list = true

@@ -7,29 +7,24 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
 -- Neovim Lua Config File by Arfan Zubi
--- MAPPINGS
+-- NULL-LS
 
--- Leader
-g.mapleader = ","
+local null_ls = require("null-ls")
 
--- NerdTree
-kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
+null_ls.setup({
+	sources = {
+		-- Formatters
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.shfmt,
 
--- Split navigation using CTRL + {j, k, h, l}
-kmap.set("n", "<up>", "<c-w>k")
-kmap.set("n", "<down>", "<c-w>j")
-kmap.set("n", "<right>", "<c-w>l")
-kmap.set("n", "<left>", "<c-w>h")
+		-- Diagnostics
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.diagnostics.codespell,
 
--- Resize split windows using arrow keys
-kmap.set("n", "<c-up>", "<c-w>-")
-kmap.set("n", "<c-down>", "<c-w>+")
-kmap.set("n", "<c-right>", "<c-w>>")
-kmap.set("n", "<c-left>", "<c-w><")
-
--- Telescope
-local builtin = require("telescope.builtin")
-kmap.set("n", "<leader>ff", builtin.find_files, {})
-kmap.set("n", "<leader>fg", builtin.live_grep, {})
-kmap.set("n", "<leader>fb", builtin.buffers, {})
-kmap.set("n", "<leader>fh", builtin.help_tags, {})
+		-- Code Actions
+		null_ls.builtins.code_actions.eslint,
+		null_ls.builtins.code_actions.shellcheck,
+	},
+})
