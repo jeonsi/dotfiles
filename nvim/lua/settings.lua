@@ -71,14 +71,14 @@ opt.ignorecase = true
 -- Overriding ignorecase option if searching for capital letters
 opt.smartcase = true
 
+-- Showing matching words during search
+opt.showmatch = true
+
 -- Showing partial command on last line
 opt.showcmd = true
 
 -- Showing mode on last line
 opt.showmode = false
-
--- Showing matching words during search
-opt.showmatch = true
 
 -- Command history
 opt.history = 1000
