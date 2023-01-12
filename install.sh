@@ -98,7 +98,9 @@ function install() {
 		sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
 
 		if [[ -d /usr/share/icons-in-terminal ]]; then
-			cd "/usr/share/icons-in-terminal" || exit 1
+			cd "/usr/share/icons-in-terminal" || {
+				echo "${bold}${red}Could not find icons-in-terminal directory inside /usr/share directory${normal}"
+			}
 			/usr/share/icons-in-terminal/install.sh
 		fi
 		echo "${ylw}Done!${normal}"
