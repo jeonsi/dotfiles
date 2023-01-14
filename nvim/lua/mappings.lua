@@ -29,7 +29,12 @@ kmap.set("n", "<c-left>", "<c-w><")
 
 -- Telescope
 local builtin = require("telescope.builtin")
+local extensions = require("telescope").extensions
 kmap.set("n", "<leader>ff", builtin.find_files, {})
 kmap.set("n", "<leader>fg", builtin.live_grep, {})
 kmap.set("n", "<leader>fb", builtin.buffers, {})
 kmap.set("n", "<leader>fh", builtin.help_tags, {})
+
+kmap.set("n", "<leader>rf", extensions.recent_files.pick, {})
+kmap.set("n", "<leader>fm", extensions.vim_bookmarks.all, {})
+kmap.set("n", "<leader>fm-", extensions.vim_bookmarks.current_file, {})

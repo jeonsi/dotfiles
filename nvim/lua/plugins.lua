@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
 
 	-------- Appearance
 	use({
-		"goolord/alpha-nvim", -- Startup screen
+		"3rfaan/alpha-nvim", -- Startup screen
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
@@ -41,11 +41,14 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	-- Telescope extensions
+	use({ "smartpde/telescope-recent-files", "tom-anders/telescope-vim-bookmarks.nvim" })
 
 	------- Editing Tools
 	use("windwp/nvim-autopairs") -- Auto closing brackets, parenthesis etc.
 	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
 	use("norcalli/nvim-colorizer.lua") -- Hex color highlighting
+	use("MattesGroeger/vim-bookmarks") -- Bookmarks
 
 	------- Git
 	use({
