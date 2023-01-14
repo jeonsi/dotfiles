@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
 
 	-------- Appearance
 	use({
-		"3rfaan/alpha-nvim", -- Startup screen
+		"3rfaan/alpha-nvim-everforest",
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
