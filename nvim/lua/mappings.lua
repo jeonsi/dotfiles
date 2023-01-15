@@ -30,6 +30,7 @@ kmap.set("n", "<c-left>", "<c-w><")
 -- Telescope
 local builtin = require("telescope.builtin")
 local extensions = require("telescope").extensions
+
 kmap.set("n", "<leader>ff", builtin.find_files, {})
 kmap.set("n", "<leader>fg", builtin.live_grep, {})
 kmap.set("n", "<leader>fb", builtin.buffers, {})
