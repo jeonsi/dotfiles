@@ -112,7 +112,7 @@ g.coq_settings = { auto_start = "shut-up", keymap = { jump_to_mark = "null" } }
 opt.list = true
 
 -- GUI settings
-opt.guifont = { "FiraCode Nerd Font", ":h8" }
+opt.guifont = { "FiraCode Nerd Font", ":h11" }
 
 -- Settings for Neovide
 g.neovide_cursor_vfx_mode = "railgun"
