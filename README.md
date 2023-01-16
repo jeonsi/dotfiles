@@ -444,6 +444,12 @@ $ sudo pacman -S neovim
 $ sudo pacman -S dmenu rofi
 ```
 
+Some additional stuff for rofi:
+
+```
+$ sudo pacman -S rofi-emoji rofi-calc
+```
+
 ### Status Bar
 
 ```

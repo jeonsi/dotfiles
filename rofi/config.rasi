@@ -1,8 +1,7 @@
 configuration {
-  modi: "window,drun,ssh,filebrowser";
+  modi: "window,drun,ssh,filebrowser,emoji,calc";
   terminal: "kitty";
   drun-match-fields: "name";
   sidebar-mode: true;
-  combi-modi: "window,drun,ssh,filebrowser";
 }
 @theme "~/.local/share/rofi/themes/squared-everforest.rasi"

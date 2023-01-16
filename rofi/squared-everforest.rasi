@@ -53,6 +53,14 @@ configuration {
     filebrowser {
         display-name: "";
     }
+
+    emoji {
+        display-name: "😀";
+    }
+
+    calc {
+        display-name: "";
+    }
 }
 
 inputbar {
