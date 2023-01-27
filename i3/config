@@ -210,9 +210,6 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 
 ## DISPLAY SETTINGS
 
-# Keyboard Settings
-exec --no-startup-id setxkbmap -model asus_laptop -layout ch,us
-
 # Start feh to set wallpaper
 exec_always --no-startup-id feh --bg-center --no-xinerama $HOME/Dokumente/wallpapers/flowers.png
 

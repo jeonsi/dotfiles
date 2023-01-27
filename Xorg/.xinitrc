@@ -42,5 +42,8 @@ else
 	xrandr --output "$intern" --primary --auto --output "$extern" --above "$intern" --auto
 fi
 
+# Keyboard settings
+setxkbmap -model asus_laptop -layout ch,us
+
 # Start i3 Window Manager when starting X Server
 exec i3
