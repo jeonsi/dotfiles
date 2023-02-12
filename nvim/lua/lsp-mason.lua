@@ -23,7 +23,7 @@ require("mason-lspconfig").setup({
 		"marksman",
 		"rust_analyzer",
 		"sqlls",
-		"sumneko_lua",
+		"lua_ls",
 		"tsserver",
 		"yamlls",
 	},
