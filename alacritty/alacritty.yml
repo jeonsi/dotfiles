@@ -174,7 +174,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#2F383E'
+    background: '#2D353B'
     foreground: '#D3C6AA'
 
     # Bright and dim foreground colors
@@ -213,10 +213,10 @@ colors:
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
     matches:
-      foreground: '#2F383E'
+      foreground: '#2D353B'
       background: '#83C092'
     focused_match:
-      foreground: '#2F383E'
+      foreground: '#2D353B'
       background: '#A7C080'
 
   # Keyboard hints
