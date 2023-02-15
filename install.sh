@@ -21,7 +21,7 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s
 ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   
 
 " \
-	"EVERFOREST THEME FOR ARCH LINUX Version 1.0" \
+	"EVERFOREST THEME FOR ARCH LINUX Version 1.1" \
 	"Author: Arfan Zubi" \
 	"License: 2023 GNU General Public License"
 
@@ -79,6 +79,12 @@ function install() {
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 		echo "${ylw}Done!${normal}"
 
+		# Copying wallpaper to Downloads folder
+		echo "${ylw}Setting wallpaper${normal}"
+		cp -Rfv "$DOWNLOAD_DIR/dotfiles/flowers.png" "$DOWNLOAD_DIR/flowers.png"
+		echo "${ylw}Done!${normal}"
+
+        # Changing directory to ~/.config
 		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
 
@@ -116,6 +122,7 @@ function rm_install_file() {
 	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Removing installation files...${normal}"
 		rm -rf "$DOWNLOAD_DIR/dotfiles"
+		echo "${ylw}Done removing installation files${normal}"
 	fi
 }
 
