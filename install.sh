@@ -21,7 +21,7 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s
 ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   
 
 " \
-	"EVERFOREST THEME FOR ARCH LINUX Version 1.1" \
+	"EVERFOREST CONFIGS FOR ARCH LINUX Version 1.1" \
 	"Author: Arfan Zubi" \
 	"License: 2023 GNU General Public License"
 
