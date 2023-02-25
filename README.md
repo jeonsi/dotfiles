@@ -12,7 +12,7 @@ Also in the directory `asus` you will find configurations for Arch Linux on bare
 
 Your Arch system should look something like this using my config files:
 
-![Arch Everforest Rice](screenshot-20221230-145517Z-all.png)
+![Arch Everforest Rice](screenshot-20230225-234355Z-all.png)
 
 ⚠️ _Caution:_ If you are installing Arch on a virtual machine you won't have the blur effect like in the image above because there is no hardware acceleration.
 
