@@ -13,6 +13,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- General keybindings
 local opts = { noremap = true, silent = true }
+
 kmap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 kmap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 kmap.set("n", "]d", vim.diagnostic.goto_next, opts)
