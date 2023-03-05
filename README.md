@@ -6,7 +6,7 @@ I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook
 
 Also in the directory `asus` you will find configurations for Arch Linux on bare metal. The configurations for your system may vary.
 
-ℹ️  **If you already have a running Arch system with the necessary packets installed, you can go to the [Quick Ricing](#quick-ricing) section.**
+ℹ️ **If you already have a running Arch system with the necessary packets installed, you can go to the [Quick Ricing](#quick-ricing) section.**
 
 ## What's the final result?
 
@@ -94,7 +94,7 @@ We will do it according to the example layout of the Arch wiki:
 3. Enter <kbd>Enter</kbd> to use the default last sector.
 4. Press <kbd>t</kbd> and choose 3 and write _linux_.
 
-⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+⚠️\* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
 
 After partitioning check if the partitions have been created using `fdisk -l`.
 
@@ -113,16 +113,17 @@ $ mount /dev/root_partition /mnt
 $ mount --mkdir /dev/efi_system_partition /mnt/boot
 $ swapon /dev/swap_partition
 ```
+
 #### BIOS with MBR
 
 Press <kbd>o</kbd> to create a new GPT Partition Table.
 
 We will do it according to the example layout of the Arch wiki:
 
-| Mount point | Partition                   | Partition type | Suggested size      |
-| ----------- | --------------------------- | -------------- | ------------------- |
-| [SWAP]      | /dev/_swap_partition_       | swap           | More than 512 MiB   |
-| /mnt        | /dev/_root_partition_       | linux          | Remainder of device |
+| Mount point | Partition             | Partition type | Suggested size      |
+| ----------- | --------------------- | -------------- | ------------------- |
+| [SWAP]      | /dev/_swap_partition_ | swap           | More than 512 MiB   |
+| /mnt        | /dev/_root_partition_ | linux          | Remainder of device |
 
 ##### Create swap partition
 
@@ -144,7 +145,7 @@ We will do it according to the example layout of the Arch wiki:
 
 Press <kbd>a</kbd> and choose 2 to make the root partition bootable.
 
-⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+⚠️\* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
 
 After partitioning check if the partitions have been created using `fdisk -l`.
 
@@ -161,6 +162,7 @@ $ mkswap /dev/swap_partition
 $ mount /dev/root_partition /mnt
 $ swapon /dev/swap_partition
 ```
+
 ### Package install
 
 For a minimal system download and install these packages:
@@ -292,13 +294,14 @@ Check using `fdisk -l` to see the name of the disk (**not partition!**) and run 
 $ grub-install /dev/sdX
 ```
 
-*/dev/sdX* could for example stand for */dev/sda* (**not _/dev/sda1_!**)
+_/dev/sdX_ could for example stand for _/dev/sda_ (**not _/dev/sda1_!**)
 
 Then create a **GRUB** config file:
 
 ```
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
 #### Final step
 
 Exit out of the chroot environment by typing `exit` or pressing <kbd>Ctrl</kbd>+<kbd>d</kbd>.
@@ -315,7 +318,7 @@ Then type `poweroff` and remove the installation disk from the virtual machine.
 
 ### Enable network connection
 
-To use *pacman* you first have to have a working internet connection by enabling NetworkManager:
+To use _pacman_ you first have to have a working internet connection by enabling NetworkManager:
 
 ```
 $ systemctl start NetworkManager
@@ -327,6 +330,7 @@ Check if you receive data from the Google Server by running this command:
 ```
 $ ping 8.8.8.8
 ```
+
 ### Update the system
 
 First things first: Update the system!
@@ -551,7 +555,7 @@ $ sudo pacman -S rxvt-unicode alacritty kitty
 
 ### Editor
 
-The editor should already be installed after running the *pacstrap* command in the installation process. You can use other editors like *nano* too.
+The editor should already be installed after running the _pacstrap_ command in the installation process. You can use other editors like _nano_ too.
 
 ```
 $ sudo pacman -S neovim
@@ -671,6 +675,18 @@ Then run the _install.sh_ script:
 
 ```
 $ ./install.sh
+```
+
+If you are on **VirtualBox**, run this command instead:
+
+```
+$ ./install.sh vbok
+```
+
+If you are on **UTM (or QEMU)**, run this command instead:
+
+```
+$ ./install.sh utm
 ```
 
 If you want to copy the config files manually you also have to install these packages manually:
