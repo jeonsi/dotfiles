@@ -29,6 +29,14 @@ $ ls /usr/share/kbd/keymaps/**/*.map.gz
 $ loadkeys de_CH-latin1
 ```
 
+### Console font
+
+This step is not really necessary, but the Terminus font may appear cleaner than the default one:
+
+```
+$ setfont Lat2-Terminus16
+```
+
 ### Partitioning
 
 Check the name of the hard disk:
@@ -42,6 +50,16 @@ Use the name (in my case _vda_) to start the `fdisk` partitioning tool:
 ```
 fdisk /dev/vda
 ```
+
+#### UEFI or BIOS?
+
+Run the following command:
+
+```
+$ ls /sys/firmware/efi/efivars
+```
+
+If the command shows the directory without error, then the system is booted in UEFI mode. Else you have to use BIOS mode.
 
 #### UEFI with GPT
 
@@ -76,6 +94,10 @@ We will do it according to the example layout of the Arch wiki:
 3. Enter <kbd>Enter</kbd> to use the default last sector.
 4. Press <kbd>t</kbd> and choose 3 and write _linux_.
 
+⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+
+After partitioning check if the partitions have been created using `fdisk -l`.
+
 ##### Partition formatting
 
 ```
@@ -91,10 +113,6 @@ $ mount /dev/root_partition /mnt
 $ mount --mkdir /dev/efi_system_partition /mnt/boot
 $ swapon /dev/swap_partition
 ```
-⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
-
-After partitioning check if the partitions have been created using `fdisk -l`.
-
 #### BIOS with MBR
 
 Press <kbd>o</kbd> to create a new GPT Partition Table.
@@ -126,6 +144,10 @@ We will do it according to the example layout of the Arch wiki:
 
 Press <kbd>a</kbd> and choose 2 to make the root partition bootable.
 
+⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+
+After partitioning check if the partitions have been created using `fdisk -l`.
+
 ##### Partition formatting
 
 ```
@@ -139,10 +161,6 @@ $ mkswap /dev/swap_partition
 $ mount /dev/root_partition /mnt
 $ swapon /dev/swap_partition
 ```
-⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
-
-After partitioning check if the partitions have been created using `fdisk -l`.
-
 ### Package install
 
 For a minimal system download and install these packages:
@@ -300,8 +318,8 @@ Then type `poweroff` and remove the installation disk from the virtual machine.
 To use *pacman* you first have to have a working internet connection by enabling NetworkManager:
 
 ```
-$ sudo systemctl start NetworkManager
-$ sudo systemctl enable NetworkManager
+$ systemctl start NetworkManager
+$ systemctl enable NetworkManager
 ```
 
 Check if you receive data from the Google Server by running this command:
@@ -327,7 +345,7 @@ $ pacman -S sudo
 
 ```
 $ useradd -m -g users -G wheel,storage,power,video,audio <your username>
-$ passwd <your username> <your password>
+$ passwd <your username>
 ```
 
 #### Grant root access to our user
@@ -360,7 +378,7 @@ $ xdg-user-dirs-update
 To install [yay](https://github.com/Jguer/yay):
 
 ```
-$ sudo pacman -S base-devel git
+$ sudo pacman -S git
 $ mkdir aur
 $ cd aur
 $ git clone https://aur.archlinux.org/yay.git
@@ -446,7 +464,11 @@ $ sudo systemctl enable fstrim.timer
 ### Enable Time Synchronization
 
 ```
-$ sudo systemctl enable systemd-timesync
+$ sudo pacman -S ntp
+```
+
+```
+$ sudo systemctl enable ntpd
 ```
 
 Then enable NTP:
@@ -624,7 +646,7 @@ $ sudo pacman -S maim
 #### Languages, protocols, shells
 
 ```
-$ sudo pacman -S go luarocks ruby rubygems composer php nodejs npm yarn python python-pip jre-openjdk jdk-openjdk julia wget curl
+$ sudo pacman -S codespell go luarocks ruby rubygems composer php nodejs npm yarn python python-pip jre-openjdk jdk-openjdk julia wget curl
 ```
 
 ```
@@ -632,6 +654,10 @@ $ yay -S powershell-bin
 ```
 
 These programming languages, protocols or shells are not that important to install if you don't need them. I installed all of them to avoid warnings in the _mason.nvim report_ when running the `:checkhealth` command in Neovim.
+
+### Reboot
+
+When done installing the necessary packages, run the `reboot` command.
 
 ## Quick Ricing
 
