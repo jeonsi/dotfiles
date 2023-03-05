@@ -43,6 +43,8 @@ Use the name (in my case _vda_) to start the `fdisk` partitioning tool:
 fdisk /dev/vda
 ```
 
+#### UEFI with GPT
+
 Press <kbd>g</kbd> to create a new GPT Partition Table.
 
 We will do it according to the example layout of the Arch wiki:
@@ -53,32 +55,28 @@ We will do it according to the example layout of the Arch wiki:
 | [SWAP]      | /dev/_swap_partition_       | swap           | More than 512 MiB   |
 | /mnt        | /dev/_root_partition_       | linux          | Remainder of device |
 
-#### Create boot partition
+##### Create boot partition
 
 1. Press <kbd>n</kbd>.
 2. Press <kbd>Enter</kbd> to use the default first sector.
 3. Enter _+300M_ for the last sector.
 4. Press <kbd>t</kbd> and choose 1 and write _uefi_.
 
-#### Create swap partition
+##### Create swap partition
 
 1. Press <kbd>n</kbd>.
 2. Press <kbd>Enter</kbd> to use the default first sector.
 3. Enter _+512M_ for the last sector.
 4. Press <kbd>t</kbd> and choose 2 and write _swap_.
 
-#### Create root partition
+##### Create root partition
 
 1. Press <kbd>n</kbd>.
 2. Press <kbd>Enter</kbd> to use the default first sector.
 3. Enter <kbd>Enter</kbd> to use the default last sector.
 4. Press <kbd>t</kbd> and choose 3 and write _linux_.
 
-**When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
-
-After partitioning check if the partitions have been created using `fdisk -l`.
-
-### Partition formatting
+##### Partition formatting
 
 ```
 $ mkfs.ext4 /dev/root_partition
@@ -86,13 +84,64 @@ $ mkswap /dev/swap_partition
 $ mkfs.fat -F 32 /dev/efi_system_partition
 ```
 
-### Mounting the file system
+##### Mounting the file system
 
 ```
 $ mount /dev/root_partition /mnt
 $ mount --mkdir /dev/efi_system_partition /mnt/boot
 $ swapon /dev/swap_partition
 ```
+⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+
+After partitioning check if the partitions have been created using `fdisk -l`.
+
+#### BIOS with MBR
+
+Press <kbd>o</kbd> to create a new GPT Partition Table.
+
+We will do it according to the example layout of the Arch wiki:
+
+| Mount point | Partition                   | Partition type | Suggested size      |
+| ----------- | --------------------------- | -------------- | ------------------- |
+| [SWAP]      | /dev/_swap_partition_       | swap           | More than 512 MiB   |
+| /mnt        | /dev/_root_partition_       | linux          | Remainder of device |
+
+##### Create swap partition
+
+1. Press <kbd>n</kbd>.
+2. Press <kbd>Enter</kbd> to select the default primary partition type.
+3. Press <kbd>Enter</kbd> to use the default first sector.
+4. Enter _+512M_ for the last sector.
+5. Press <kbd>t</kbd> and choose 1 and write _swap_.
+
+##### Create root partition
+
+1. Press <kbd>n</kbd>.
+2. Press <kbd>Enter</kbd> to select the default primary partition type.
+3. Press <kbd>Enter</kbd> to use the default first sector.
+4. Enter <kbd>Enter</kbd> to use the default last sector.
+5. Press <kbd>t</kbd> and choose 2 and write _linux_.
+
+##### Make partition bootable
+
+Press <kbd>a</kbd> and choose 2 to make the root partition bootable.
+
+##### Partition formatting
+
+```
+$ mkfs.ext4 /dev/root_partition
+$ mkswap /dev/swap_partition
+```
+
+##### Mounting the file system
+
+```
+$ mount /dev/root_partition /mnt
+$ swapon /dev/swap_partition
+```
+⚠️* **When you are done partitioning don't forget to press <kbd>w</kbd> to save the changes!**
+
+After partitioning check if the partitions have been created using `fdisk -l`.
 
 ### Package install
 
@@ -191,6 +240,8 @@ $ passwd
 
 #### Bootloader
 
+##### UEFI
+
 Install `grub` and `efibootmgr`:
 
 ```
@@ -209,6 +260,27 @@ Then create a **GRUB** config file:
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+##### BIOS
+
+Install `grub`:
+
+```
+$ pacman -S grub
+```
+
+Check using `fdisk -l` to see the name of the disk (**not partition!**) and run the following command:
+
+```
+$ grub-install /dev/sdX
+```
+
+*/dev/sdX* could for example stand for */dev/sda* (**not _/dev/sda1_!**)
+
+Then create a **GRUB** config file:
+
+```
+$ grub-mkconfig -o /boot/grub/grub.cfg
+```
 #### Final step
 
 Exit out of the chroot environment by typing `exit` or pressing <kbd>Ctrl</kbd>+<kbd>d</kbd>.
@@ -223,6 +295,20 @@ Then type `poweroff` and remove the installation disk from the virtual machine.
 
 ## System-related Configurations
 
+### Enable network connection
+
+To use *pacman* you first have to have a working internet connection by enabling NetworkManager:
+
+```
+$ sudo systemctl start NetworkManager
+$ sudo systemctl enable NetworkManager
+```
+
+Check if you receive data from the Google Server by running this command:
+
+```
+$ ping 8.8.8.8
+```
 ### Update the system
 
 First things first: Update the system!
@@ -247,7 +333,7 @@ $ passwd <your username> <your password>
 #### Grant root access to our user
 
 ```
-$ EDITOR=vim visudo
+$ EDITOR=nvim visudo
 ```
 
 Uncomment the following line:
@@ -282,12 +368,22 @@ $ cd yay
 $ makepkg -si
 ```
 
-### SPICE support on guest
+### Guest tools
+
+#### SPICE support on guest (for UTM)
 
 This will enhance graphics and improve support for multiple monitors or clipboard sharing.
 
 ```
 $ sudo pacman -S spice-vdagent xf86-video-qxl
+```
+
+#### Guest additions (for VirtualBox)
+
+This will enhance graphics and improve support for multiple monitors or clipboard sharing.
+
+```
+$ sudo pacman -S virtualbox-guest-utils
 ```
 
 ### Sound
@@ -322,7 +418,6 @@ Enable SSH, DHCP and NM:
 ```
 $ sudo systemctl enable sshd
 $ sudo systemctl enable dhcpcd
-$ sudo systemctl enable NetworkManager
 ```
 
 ### Bluetooth
@@ -337,7 +432,7 @@ $ sudo systemctl enable bluetooth
 To beautify Pacman use:
 
 ```
-$ sudo vim /etc/pacman.conf
+$ sudo nvim /etc/pacman.conf
 ```
 
 Uncomment `Color` and add below it `ILoveCandy`.
@@ -411,7 +506,7 @@ $ sudo pacman -S noto-fonts noto-fonts-emoji
 ```
 
 ```
-$ yay -S nerd-fonts-complete
+$ yay -S ttf-firacode-nerd
 ```
 
 ### Shell
@@ -433,6 +528,8 @@ $ sudo pacman -S rxvt-unicode alacritty kitty
 ```
 
 ### Editor
+
+The editor should already be installed after running the *pacstrap* command in the installation process. You can use other editors like *nano* too.
 
 ```
 $ sudo pacman -S neovim
