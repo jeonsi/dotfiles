@@ -8,6 +8,8 @@ grn=$(tput setaf 2)
 ylw=$(tput setaf 3)
 gry=$(tput setaf 8)
 
+system=$1
+
 CONFIG_DIR=$HOME/.config
 DOWNLOAD_DIR=$HOME/Downloads
 
@@ -70,7 +72,14 @@ function install() {
 
 		# Copying files which target destinations are not in ~/.config
 		echo "${ylw}Copying files to other directories${normal}"
-		sudo cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/." "/etc/X11/xorg.conf.d"
+
+        # If user provided command line argument ("utm" or "vbox") then copy X11 files to xorg.conf.d else don't copy anything to xorg.conf.d
+		if [ "$system" == "utm" ]; then
+			sudo cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/UTM/." "/etc/X11/xorg.conf.d"
+		elif [ "$system" == "vbox" ]; then
+			sudo cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/VBox/." "/etc/X11/xorg.conf.d"
+		fi
+
 		if [[ ! -d "$HOME/.local/share/rofi" ]]; then
 			mkdir -p "$HOME/.local/share/rofi/themes"
 			cp -Rfv "$DOWNLOAD_DIR/dotfiles/rofi/squared-everforest.rasi" "$HOME/.local/share/rofi/themes/squared-everforest.rasi"
@@ -84,7 +93,7 @@ function install() {
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/flowers.png" "$DOWNLOAD_DIR/flowers.png"
 		echo "${ylw}Done!${normal}"
 
-        # Changing directory to ~/.config
+		# Changing directory to ~/.config
 		cd "$CONFIG_DIR" || exit 1
 		echo "${ylw}Changed directory to $(pwd)${normal}"
 
