@@ -13,7 +13,7 @@ system=$1
 CONFIG_DIR=$HOME/.config
 DOWNLOAD_DIR=$HOME/Downloads
 
-printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
+printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${bold}${ylw}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
 
 ███████╗██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗███████╗████████╗
 ██╔════╝██║   ██║██╔════╝██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝
