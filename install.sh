@@ -192,21 +192,6 @@ function install_shell_tools() {
 		else
 			echo "${grn}Ranger devicons is already installed${normal}"
 		fi
-
-		# Additional symbols for Fira Code Nerd Font
-		if [[ ! -d /usr/share/icons-in-terminal ]]; then
-			sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
-		else
-			echo "${grn}icons-in-terminal is already installed${normal}"
-		fi
-
-		if [[ -d /usr/share/icons-in-terminal ]]; then
-			cd "/usr/share/icons-in-terminal" || {
-				echo "${bold}${red}Could not find icons-in-terminal directory inside /usr/share directory${normal}"
-			}
-			/usr/share/icons-in-terminal/install.sh
-		fi
-		echo "${ylw}Done!${normal}"
 	else
 		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
 		exit 1

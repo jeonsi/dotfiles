@@ -692,7 +692,6 @@ $ ./install.sh utm
 If you want to copy the config files manually you also have to install these packages manually:
 
 - [Packer](https://github.com/wbthomason/packer.nvim)
-- [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [ranger_devicons](https://github.com/alexanderjeurissen/ranger_devicons)
