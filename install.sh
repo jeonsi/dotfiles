@@ -28,35 +28,33 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${ylw}%s
 	"Theme: Sainnhe Park" \
 	"License: 2023 GNU General Public License"
 
-main() {
-	pre_install_checks
-	remove_git_directory
-	copy_config_files
-	copy_others
-	set_wallpaper
-	install_shell_tools
-	remove_install_file
-}
-
 # Installation prompt
-while true; do
-	echo -e "${bold}${red}===> This installer will delete ALL files in your ~/.config directory.${normal}"
-	read -r -p "${ylw}Do you want to proceed? [y/N] ${normal}" yn
+function main() {
+	while true; do
+		echo -e "${bold}${red}===> This installer will delete ALL files in your ~/.config directory.${normal}"
+		read -r -p "${ylw}Do you want to proceed? [y/N] ${normal}" yn
 
-	case $yn in
-	[Yy]*)
-        main
+		case $yn in
+		[Yy]*)
+			pre_install_checks
+			remove_git_directory
+			copy_config_files
+			copy_others
+			set_wallpaper
+			install_shell_tools
+			remove_install_file
 
-		echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
-		exit 0
-		;;
-	[Nn]* | "")
-		echo "${bold}${red}Aborting installation...${normal}"
-		exit 1
-		;;
-	*) echo "Please enter [y]es or [n]o!" ;;
-	esac
-done
+			echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
+			exit 0
+			;;
+		[Nn]* | "")
+			echo "${bold}${red}Aborting installation...${normal}"
+			exit 1
+			;;
+		*) echo "Please enter [y]es or [n]o!" ;;
+		esac
+	done
+}
 
 # Checking if ~/.config already exists and wipe it if it does
 function pre_install_checks() {
@@ -195,4 +193,5 @@ function remove_install_file() {
 	fi
 }
 
-main "$@"; exit
+main "$@"
+exit
