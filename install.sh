@@ -36,6 +36,7 @@ function main() {
 
 		case $yn in
 		[Yy]*)
+			echo "${system}"
 			pre_install_checks
 			remove_git_directory
 			copy_config_files
@@ -164,12 +165,41 @@ function set_wallpaper() {
 function install_shell_tools() {
 	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Installing shell tools${normal}"
-		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-		git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
-		git clone https://github.com/alexanderjeurissen/ranger_devicons "$CONFIG_DIR/ranger/plugins/ranger_devicons"
 
-		sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
+		# Packer
+		if [[ ! -d $HOME/.local/share/nvim/site/pack/packer ]]; then
+			git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+		else
+			echo "${red}Packer is already installed${normal}"
+		fi
+
+		# ZSH auto suggestions
+		if [[ ! -d $HOME/.zsh/zsh-autosuggestions ]]; then
+			git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
+		else
+			echo "${red}ZSH auto suggestions is already installed${normal}"
+		fi
+
+		# ZSH syntax highlighting
+		if [[ ! -d $HOME/.zsh/zsh-syntax-highlighting ]]; then
+			git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
+		else
+			echo "${red}ZSH syntax highlighting is already installed${normal}"
+		fi
+
+		# Icons for ranger
+		if [[ ! -d $CONFIG_DIR/ranger/plugins/ranger_devicons ]]; then
+			git clone https://github.com/alexanderjeurissen/ranger_devicons "$CONFIG_DIR/ranger/plugins/ranger_devicons"
+		else
+			echo "${red}Ranger devicons is already installed${normal}"
+		fi
+
+		# Additional symbols for Fira Code Nerd Font
+		if [[ ! -d /usr/share/icons-in-terminal ]]; then
+			sudo git clone https://github.com/sebastiencs/icons-in-terminal.git "/usr/share/icons-in-terminal"
+		else
+			echo "${red}icons-in-terminal is already installed${normal}"
+		fi
 
 		if [[ -d /usr/share/icons-in-terminal ]]; then
 			cd "/usr/share/icons-in-terminal" || {
