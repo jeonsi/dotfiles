@@ -25,8 +25,18 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${ylw}%s
 " \
 	"EVERFOREST CONFIGS FOR ARCH LINUX Version 1.1" \
 	"Author: Arfan Zubi" \
-    "Theme: Sainnhe Park" \
+	"Theme: Sainnhe Park" \
 	"License: 2023 GNU General Public License"
+
+main() {
+	pre_install_checks
+	remove_git_directory
+	copy_config_files
+	copy_others
+	set_wallpaper
+	install_shell_tools
+	remove_install_file
+}
 
 # Installation prompt
 while true; do
@@ -35,13 +45,7 @@ while true; do
 
 	case $yn in
 	[Yy]*)
-		pre_install_checks
-		remove_git_directory
-		copy_config_files
-		copy_others
-		set_wallpaper
-		install_shell_tools
-		remove_install_file
+        main
 
 		echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
 		exit 0
@@ -190,3 +194,5 @@ function remove_install_file() {
 		echo "${ylw}Done removing installation files${normal}"
 	fi
 }
+
+main "$@"; exit

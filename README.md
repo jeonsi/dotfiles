@@ -680,7 +680,7 @@ $ ./install.sh
 If you are on **VirtualBox**, run this command instead:
 
 ```
-$ ./install.sh vbok
+$ ./install.sh vbox
 ```
 
 If you are on **UTM (or QEMU)**, run this command instead:
