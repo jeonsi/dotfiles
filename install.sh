@@ -13,7 +13,7 @@ system=$1
 CONFIG_DIR=$HOME/.config
 DOWNLOAD_DIR=$HOME/Downloads
 
-printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
+printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
 
 ███████╗██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗███████╗████████╗
 ██╔════╝██║   ██║██╔════╝██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝
@@ -25,14 +25,42 @@ printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${ylw}%s${normal}\n${gry}%s
 " \
 	"EVERFOREST CONFIGS FOR ARCH LINUX Version 1.1" \
 	"Author: Arfan Zubi" \
+    "Theme: Sainnhe Park" \
 	"License: 2023 GNU General Public License"
 
-# Installer
-function install() {
-	# Checking if ~/.config already exists and wipe it if it does
+# Installation prompt
+while true; do
+	echo -e "${bold}${red}===> This installer will delete ALL files in your ~/.config directory.${normal}"
+	read -r -p "${ylw}Do you want to proceed? [y/N] ${normal}" yn
+
+	case $yn in
+	[Yy]*)
+		pre_install_checks
+		remove_git_directory
+		copy_config_files
+		copy_others
+		set_wallpaper
+		install_shell_tools
+		remove_install_file
+
+		echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
+		exit 0
+		;;
+	[Nn]* | "")
+		echo "${bold}${red}Aborting installation...${normal}"
+		exit 1
+		;;
+	*) echo "Please enter [y]es or [n]o!" ;;
+	esac
+done
+
+# Checking if ~/.config already exists and wipe it if it does
+function pre_install_checks() {
 	if [[ -d "$CONFIG_DIR" ]]; then
 		echo "${ylw}$CONFIG_DIR does already exist, deleting all files...${normal}"
 		rm -rfv "$CONFIG_DIR"
+	else
+		echo "${ylw}Creating new config directory ($CONFIG_DIR)${normal}"
 	fi
 
 	# Creating new empty ~/.config
@@ -50,30 +78,44 @@ function install() {
 		exit 1
 	}
 	echo "${ylw}Done!${normal}"
+}
 
-	# Checking if dotfiles are in Downloads directory
+# Removing .git directory so it won't get copied unnecessary
+function remove_git_directory() {
 	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
-
-		# Removing .git directory so it won't get copied unnecessary
 		echo "${ylw}Removing .git directory...${normal}"
 		rm -rf .git || {
 			echo "${bold}${red}Failed removing .git directory, exiting...${normal}"
 			exit 1
 		}
 		echo "${ylw}Done!${normal}"
+	else
+		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
+		exit 1
+	fi
+}
 
-		# Copying dotfiles from Downloads folder to ~/.config
+# Copying dotfiles from Downloads folder to ~/.config
+function copy_config_files() {
+	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}...${normal}"
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/." "$CONFIG_DIR" || {
 			echo "${bold}${red}Failed copying files from ${DOWNLOAD_DIR} to ${CONFIG_DIR}, exiting...${normal}"
 			exit 1
 		}
 		echo "${ylw}Done!${normal}"
+	else
+		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
+		exit 1
+	fi
+}
 
-		# Copying files which target destinations are not in ~/.config
+# Copying files which target destinations are not in ~/.config
+function copy_others() {
+	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Copying files to other directories${normal}"
 
-        # If user provided command line argument ("utm" or "vbox") then copy X11 files to xorg.conf.d else don't copy anything to xorg.conf.d
+		# If user provided command line argument ("utm" or "vbox") then copy X11 files to xorg.conf.d else don't copy anything to xorg.conf.d
 		if [ "$system" == "utm" ]; then
 			sudo cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/UTM/." "/etc/X11/xorg.conf.d"
 		elif [ "$system" == "vbox" ]; then
@@ -84,11 +126,19 @@ function install() {
 			mkdir -p "$HOME/.local/share/rofi/themes"
 			cp -Rfv "$DOWNLOAD_DIR/dotfiles/rofi/squared-everforest.rasi" "$HOME/.local/share/rofi/themes/squared-everforest.rasi"
 		fi
+
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/.xinitrc" "$HOME/.xinitrc"
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 		echo "${ylw}Done!${normal}"
+	else
+		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
+		exit 1
+	fi
+}
 
-		# Copying wallpaper to Downloads folder
+# Copying wallpaper to Downloads folder
+function set_wallpaper() {
+	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Setting wallpaper${normal}"
 		cp -Rfv "$DOWNLOAD_DIR/dotfiles/flowers.png" "$DOWNLOAD_DIR/flowers.png"
 		echo "${ylw}Done!${normal}"
@@ -103,7 +153,14 @@ function install() {
 			exit 1
 		}
 		echo "${ylw}Done!${normal}"
+	else
+		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
+		exit 1
+	fi
+}
 
+function install_shell_tools() {
+	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Installing shell tools${normal}"
 		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 		git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
@@ -119,7 +176,6 @@ function install() {
 			/usr/share/icons-in-terminal/install.sh
 		fi
 		echo "${ylw}Done!${normal}"
-
 	else
 		echo "${bold}${red}Make sure you cloned (https://github.com/3rfaan/dotfiles.git) into your ~/Downloads folder!${normal}"
 		exit 1
@@ -127,30 +183,10 @@ function install() {
 }
 
 # Removing install files after moving them to .config
-function rm_install_file() {
+function remove_install_file() {
 	if [[ -d $DOWNLOAD_DIR/dotfiles ]]; then
 		echo "${ylw}Removing installation files...${normal}"
 		rm -rf "$DOWNLOAD_DIR/dotfiles"
 		echo "${ylw}Done removing installation files${normal}"
 	fi
 }
-
-while true; do
-	echo -e "${bold}${red}===> This installer will delete ALL files in your ~/.config directory.${normal}"
-	read -r -p "${ylw}Do you want to proceed? [y/N] ${normal}" yn
-
-	case $yn in
-	[Yy]*)
-		install
-		rm_install_file
-
-		echo "${bold}${grn}Installation succeeded! Exiting...${normal}"
-		exit 0
-		;;
-	[Nn]* | "")
-		echo "${bold}${red}Aborting installation...${normal}"
-		exit 1
-		;;
-	*) echo "Please enter [y]es or [n]o!" ;;
-	esac
-done
