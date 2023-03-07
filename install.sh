@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Formatting
 normal=$(tput sgr0)
 bold=$(tput bold)
 
@@ -8,11 +9,14 @@ grn=$(tput setaf 2)
 ylw=$(tput setaf 3)
 gry=$(tput setaf 8)
 
+# Command line arguments
 system=$1
 
+# Directories
 CONFIG_DIR=$HOME/.config
 DOWNLOAD_DIR=$HOME/Downloads
 
+# Header
 printf "${gry}%s${normal}\n${bold}${grn}%s${normal}\n${bold}${ylw}%s${normal}\n${ylw}%s${normal}\n${gry}%s${normal}\n\n" "
 
 ███████╗██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗███████╗████████╗
