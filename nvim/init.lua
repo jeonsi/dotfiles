@@ -29,3 +29,4 @@ require("lsp-mason") -- Mason LSP servers
 require("lsp-config-setup") -- LSPconfig setup
 require("lsp-servers") -- Language server setup
 require("lsp-nullls") -- NullLS formatting, diagnostics, code actions
+require("gitsigns-config") -- Gitsigns mappings

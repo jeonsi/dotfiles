@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+
 	-- Telescope extensions
 	use({ "smartpde/telescope-recent-files", "tom-anders/telescope-vim-bookmarks.nvim" })
 

@@ -9,8 +9,6 @@
 -- Neovim Lua Config File by Arfan Zubi
 -- LANGUAGE SERVERS
 
-require("lsp-config-setup") -- local LSP config file
-
 local lspconfig = require("lspconfig")
 
 -- LSP servers
