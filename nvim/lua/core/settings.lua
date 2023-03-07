@@ -98,7 +98,7 @@ opt.fillchars:append({ eob = " " })
 opt.splitright = true
 opt.splitbelow = true
 
--- Disable netrw
+-- Disable netrw (native VIM file explorer)
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
@@ -116,3 +116,9 @@ opt.guifont = { "FiraCode Nerd Font", ":h11" }
 
 -- Settings for Neovide
 g.neovide_cursor_vfx_mode = "railgun"
+
+-- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_node_provider = 0

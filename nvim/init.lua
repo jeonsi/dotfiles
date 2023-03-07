@@ -16,17 +16,16 @@ kmap = vim.keymap
 cmd = vim.cmd
 
 -- Imports
-require("settings") -- Editor settings
 
-require("plugins") -- Plugins
-require("setups") -- Setup of plugins
+require("core.settings") -- Editor settings
+require("core.plugins") -- Plugins
+require("core.setups") -- Setup of plugins
+require("core.mappings") -- Mappings
+require("core.scripts") -- Scripts
 
-require("mappings") -- Mappings
-require("scripts") -- Scripts
-
-require("treesitter") -- Treesitter syntax highlighting
-require("lsp-mason") -- Mason LSP servers
-require("lsp-config-setup") -- LSPconfig setup
-require("lsp-servers") -- Language server setup
-require("lsp-nullls") -- NullLS formatting, diagnostics, code actions
-require("gitsigns-config") -- Gitsigns mappings
+require("plugins.treesitter") -- Treesitter syntax highlighting
+require("plugins.lsp-mason") -- Mason LSP servers
+require("plugins.lsp-config-setup") -- LSPconfig setup
+require("plugins.lsp-servers") -- Language server setup
+require("plugins.lsp-nullls") -- NullLS formatting, diagnostics, code actions
+require("plugins.gitsigns-config") -- Gitsigns mappings
