@@ -128,6 +128,11 @@ function copy_others() {
 			sudo cp -Rfv "$DOWNLOAD_DIR/dotfiles/Xorg/VBox/." "/etc/X11/xorg.conf.d"
 		fi
 
+        # If no argument was provided delete Xorg folder from ~/.config
+        if [ -z "$system" ] && [ -d "$CONFIG_DIR/Xorg" ]; then
+            sudo rm -Rfv "$CONFIG_DIR/Xorg"
+        fi
+
 		if [[ ! -d "$HOME/.local/share/rofi" ]]; then
 			mkdir -p "$HOME/.local/share/rofi/themes"
 			cp -Rfv "$DOWNLOAD_DIR/dotfiles/rofi/squared-everforest.rasi" "$HOME/.local/share/rofi/themes/squared-everforest.rasi"
