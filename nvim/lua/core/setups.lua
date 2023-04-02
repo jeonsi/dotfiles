@@ -10,7 +10,9 @@
 -- SETUPS
 
 -- NvimTree
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+	on_attach = on_attach,
+})
 
 -- Alpha start screen / dashboard
 require("alpha").setup(require("alpha.themes.dashboard").config)
