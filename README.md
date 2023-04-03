@@ -459,6 +459,8 @@ $ sudo nvim /etc/pacman.conf
 
 Uncomment `Color` and add below it `ILoveCandy`.
 
+ℹ️a If you have a good internet connection, you can uncomment the option `ParallelDownloads = 5`.
+
 ### Enable SSD Trim
 
 ```
