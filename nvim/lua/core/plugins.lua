@@ -31,6 +31,8 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
+	use("mbbill/undotree") -- Undo Tree
+
 	use({
 		"nvim-treesitter/nvim-treesitter", -- Treesitter
 		run = ":TSUpdate",

@@ -15,6 +15,9 @@ g.mapleader = ","
 -- NerdTree
 kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
 
+-- Undo Tree
+kmap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
+
 -- Split navigation using CTRL + {j, k, h, l}
 kmap.set("n", "<c-k>", "<c-w>k")
 kmap.set("n", "<c-j>", "<c-w>j")

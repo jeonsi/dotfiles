@@ -18,6 +18,9 @@ opt.encoding = "UTF-8"
 -- Enabling clipboard
 opt.clipboard = "unnamedplus"
 
+-- Persistent undo
+opt.undofile = true
+
 -- Line numbers
 opt.number = true
 
