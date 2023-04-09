@@ -12,11 +12,8 @@
 -- Leader
 g.mapleader = ","
 
--- NerdTree
-kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
-
--- Undo Tree
-kmap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
+-- Open new terminal
+kmap.set("n", "<leader>t", ":botright split | terminal<cr>")
 
 -- Split navigation using CTRL + {j, k, h, l}
 kmap.set("n", "<c-k>", "<c-w>k")
@@ -29,6 +26,12 @@ kmap.set("n", "<c-up>", "<c-w>-")
 kmap.set("n", "<c-down>", "<c-w>+")
 kmap.set("n", "<c-right>", "<c-w>>")
 kmap.set("n", "<c-left>", "<c-w><")
+
+-- NerdTree
+kmap.set("n", "<leader>nt", ":NvimTreeToggle<cr>")
+
+-- Undo Tree
+kmap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
 
 -- Telescope
 local builtin = require("telescope.builtin")
