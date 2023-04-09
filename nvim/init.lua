@@ -29,3 +29,4 @@ require("plugins.lsp-config-setup") -- LSPconfig setup
 require("plugins.lsp-servers") -- Language server setup
 require("plugins.lsp-nullls") -- NullLS formatting, diagnostics, code actions
 require("plugins.gitsigns-config") -- Gitsigns mappings
+require("plugins.autopairs") -- Nvim AutoPairs
