@@ -38,8 +38,6 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-
 	use({
 		"nvim-telescope/telescope.nvim", -- Telescope
 		tag = "0.1.0",

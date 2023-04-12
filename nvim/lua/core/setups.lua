@@ -32,9 +32,6 @@ require("lualine").setup({
 	},
 })
 
--- Bufferline
-require("bufferline").setup({})
-
 -- Nvim Autopairs
 require("nvim-autopairs").setup()
 
