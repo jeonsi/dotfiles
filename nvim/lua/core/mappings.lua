@@ -13,7 +13,7 @@
 g.mapleader = ","
 
 -- Open new terminal
-kmap.set("n", "<leader>t", ":botright split | terminal<cr>")
+kmap.set("n", "<leader>t", ":split | terminal<cr>")
 
 -- Split navigation using CTRL + {j, k, h, l}
 kmap.set("n", "<c-k>", "<c-w>k")
