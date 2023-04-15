@@ -171,6 +171,12 @@ For a minimal system download and install these packages:
 $ pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs dhcpcd networkmanager sof-firmware git neovim man-db man-pages texinfo
 ```
 
+ℹ️ If you are installing Arch Linux on a computer with **ARM architecture** add the following to the above `pacstrap` command:
+
+```
+archlinuxarm-keyring
+```
+
 ⚠️ If you get errors due to key then do the following:
 
 1. Initialize _pacman_ keys and populate them:
