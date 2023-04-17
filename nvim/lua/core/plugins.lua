@@ -49,6 +49,7 @@ return require("packer").startup(function(use)
 
 	------- Editing Tools
 	use("windwp/nvim-autopairs") -- Auto closing brackets, parenthesis etc.
+	use("alvan/vim-closetag") -- Auto closing HTML tags
 	use("lukas-reineke/indent-blankline.nvim") -- Line highlighting
 	use("norcalli/nvim-colorizer.lua") -- Hex color highlighting
 	use("MattesGroeger/vim-bookmarks") -- Bookmarks
