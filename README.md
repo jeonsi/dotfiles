@@ -536,17 +536,13 @@ $ sudo pacman -S picom
 ### Font
 
 ```
-$ sudo pacman -S noto-fonts noto-fonts-emoji
+$ sudo pacman -S noto-fonts noto-fonts-emoji ttf-firacode-nerd
 ```
 
 To support Asian letters:
 
 ```
 $ sudo pacman -S noto-fonts-cjk
-```
-
-```
-$ yay -S ttf-firacode-nerd
 ```
 
 ### Shell
