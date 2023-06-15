@@ -10,7 +10,7 @@
 
 
 # Autostart X at Login
-if [ -z "${DISPLAY}"  ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     exec startx
 fi
 
@@ -33,9 +33,9 @@ alias nv='neovide'
 alias gs='git status'
 alias ga='git add -A'
 alias gc='git commit'
-alias gpull='git pull'
-alias gpush='git push'
-alias gd='git diff * | bat'
+alias gpll='git pull'
+alias gpsh='git push'
+alias gd='git diff'
 alias gl='git log --stat --graph --decorate --oneline'
 
 alias pu='sudo pacman -Syu'
