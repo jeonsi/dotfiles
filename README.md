@@ -594,7 +594,7 @@ $ sudo pacman -S dmenu rofi
 Some additional stuff for rofi:
 
 ```
-$ sudo pacman -S rofi-calc
+$ sudo pacman -S rofi-calc        # rofi-emoji not foound
 ```
 
 ### Status Bar
