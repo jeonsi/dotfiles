@@ -726,6 +726,7 @@ Post-install settings
 ```
 Delete file: /etc/X11/xorg.conf.d/10-monitor.conf
 ~/.xinitrc : comment out "setxkbmap -model asus_laptop -layout ch,us"
+UTM: Display > Upscaling > Linear, checking Retina-Mode
 ```
 
 If you want to copy the config files manually you also have to install these packages manually:
