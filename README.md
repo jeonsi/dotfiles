@@ -2,7 +2,7 @@
 
 This is a straight-forward guide for ricing Arch Linux with the [Everforest](https://github.com/sainnhe/everforest) colorscheme theme.
 
-I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook Air M1 (2020). This guide should also work with the new Macbook Air M2 and the Pro versions.
+I use a minimal install of Arch Linux on UTM (QEMU virtual machine) on a Macbook Air M1 (2020). This guide should also work with the new Macbook Air M2 and the Pro versions. In UTM, Do not check "Enable Hardware OpenGL acceleration". Some apps ara failing to render with broken compositing. If you already made VM with this option checked, then change Display option to "virtio-gpu-pci".
 
 Also in the directory `asus` you will find configurations for Arch Linux on bare metal. The configurations for your system may vary.
 
@@ -26,7 +26,7 @@ Find out which keyboard layout you are using and then set it using `loadkeys`:
 
 ```
 $ ls /usr/share/kbd/keymaps/**/*.map.gz
-$ loadkeys de_CH-latin1
+$ loadkeys us
 ```
 
 ### Console font
@@ -168,7 +168,7 @@ $ swapon /dev/swap_partition
 For a minimal system download and install these packages:
 
 ```
-$ pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs dhcpcd networkmanager sof-firmware git neovim man-db man-pages texinfo
+$ pacstrap -K /mnt base base-devel linux linux-firmware e2fsprogs dhcpcd networkmanager sof-firmware git vim neovim man-db man-pages texinfo
 ```
 
 ℹ️ If you are installing Arch Linux on a computer with **ARM architecture** add the following to the above `pacstrap` command:
@@ -224,13 +224,13 @@ $ locale-gen
 Create _/etc/locale.conf_ and set the _LANG_ variable according to your preferred language:
 
 ```
-LANG=de_CH.UTF-8
+LANG=en_US.UTF-8
 ```
 
 Create _/etc/vconsole.conf_ and set the following variables according to your preferred language:
 
 ```
-KEYMAP=de_CH-latin1
+KEYMAP=us
 FONT=Lat2-Terminus16
 ```
 
@@ -335,6 +335,8 @@ Check if you receive data from the Google Server by running this command:
 
 ```
 $ ping 8.8.8.8
+$ pacman -S neofetch
+$ neofetch
 ```
 
 ### Update the system
@@ -374,6 +376,7 @@ You can then login as your newly created user:
 
 ```
 $ su <your username>
+$ cd
 ```
 
 If you wish to have the default XDG directories (like Downloads, Pictures, Documents etc.) do:
@@ -389,11 +392,14 @@ To install [yay](https://github.com/Jguer/yay):
 
 ```
 $ sudo pacman -S git
+$ cd Documents
 $ mkdir aur
 $ cd aur
 $ git clone https://aur.archlinux.org/yay.git
 $ cd yay
 $ makepkg -si
+$ cd
+$ yay -Syu --aur
 ```
 
 ### Guest tools
@@ -403,7 +409,7 @@ $ makepkg -si
 This will enhance graphics and improve support for multiple monitors or clipboard sharing.
 
 ```
-$ sudo pacman -S spice-vdagent xf86-video-qxl
+$ sudo pacman -S spice-vdagent
 ```
 
 #### Guest additions (for VirtualBox)
@@ -422,7 +428,7 @@ $ sudo pacman -S alsa-utils alsa-plugins
 $ sudo pacman -S pavucontrol
 ```
 
-PulseAudio Applet:
+PulseAudio Applet: (skip)
 
 ```
 $ yay -S pa-applet-git
@@ -435,7 +441,7 @@ $ sudo pacman -S openssh
 $ sudo pacman -S iw wpa_supplicant
 ```
 
-NetworkManager Applet:
+NetworkManager Applet: (skip)
 
 ```
 $ sudo pacman -S network-manager-applet
@@ -445,7 +451,9 @@ Enable SSH, DHCP and NM:
 
 ```
 $ sudo systemctl enable sshd
+$ sudo systemctl start sshd
 $ sudo systemctl enable dhcpcd
+$ sudo systemctl start dhcpcd
 ```
 
 ### Bluetooth
@@ -453,6 +461,7 @@ $ sudo systemctl enable dhcpcd
 ```
 $ sudo pacman -S bluez bluez-utils blueman
 $ sudo systemctl enable bluetooth
+$ sudo systemctl start bluetooth
 ```
 
 ### Pacman
@@ -471,6 +480,7 @@ Uncomment `Color` and add below it `ILoveCandy`.
 
 ```
 $ sudo systemctl enable fstrim.timer
+$ sudo systemctl start fstrim.timer
 ```
 
 ### Enable Time Synchronization
@@ -481,12 +491,13 @@ $ sudo pacman -S ntp
 
 ```
 $ sudo systemctl enable ntpd
+$ sudo systemctl start ntpd
 ```
 
 Then enable NTP:
 
 ```
-$ timedatectl set-ntp true
+$ sudo timedatectl set-ntp true
 ```
 
 ## Graphical User Interface (GUI) Settings
@@ -494,7 +505,7 @@ $ timedatectl set-ntp true
 ### Xorg
 
 ```
-$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip xdotool
+$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip        # xdotool
 ```
 
 ### i3
@@ -536,7 +547,8 @@ $ sudo pacman -S picom
 ### Font
 
 ```
-$ sudo pacman -S noto-fonts noto-fonts-emoji ttf-firacode-nerd
+$ sudo pacman -S noto-fonts        # noto-fonts-emoji ttf-firacode-nerd
+$ yay -S nerd-fonts-complete       # package not found
 ```
 
 To support Asian letters:
@@ -554,6 +566,7 @@ $ sudo pacman -S zsh
 Change default shell to zsh:
 
 ```
+logout, login:
 $ chsh -s $(which zsh)
 ```
 
@@ -580,7 +593,7 @@ $ sudo pacman -S dmenu rofi
 Some additional stuff for rofi:
 
 ```
-$ sudo pacman -S rofi-emoji rofi-calc
+$ sudo pacman -S rofi-calc
 ```
 
 ### Status Bar
@@ -642,6 +655,7 @@ $ sudo pacman -S tldr fzf tar gzip htop neofetch
 
 ```
 $ sudo pacman -S fd ripgrep bat lsd
+$ sudo reboot
 ```
 
 - _fd_: Alternative to _find_ command
@@ -652,6 +666,13 @@ $ sudo pacman -S fd ripgrep bat lsd
 #### GUI utilities
 
 ```
+login as non-root user, 0 for zsh first prompt
+$ startx
+generate config file: Enter
+Win as default modifier: Enter
+Cmd+Enter starts a terminal
+Cmd+D : ala+tap, enter
+
 $ sudo pacman -S maim
 ```
 
@@ -660,7 +681,7 @@ $ sudo pacman -S maim
 #### Languages, protocols, shells
 
 ```
-$ sudo pacman -S codespell go luarocks ruby rubygems composer php nodejs npm yarn python python-pip jre-openjdk jdk-openjdk julia wget curl
+$ sudo pacman -S codespell go luarocks ruby rubygems composer php nodejs npm yarn python python-pip jre-openjdk jdk-openjdk wget curl    # julia not found
 ```
 
 ```
