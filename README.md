@@ -721,9 +721,12 @@ If you are on **UTM (or QEMU)**, run this command instead:
 $ ./install.sh utm
 ```
 
+Post-install settings
+
+```
 Delete file: /etc/X11/xorg.conf.d/10-monitor.conf
 ~/.xinitrc : comment out "setxkbmap -model asus_laptop -layout ch,us"
-
+```
 
 If you want to copy the config files manually you also have to install these packages manually:
 
