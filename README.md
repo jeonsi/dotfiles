@@ -547,8 +547,9 @@ $ sudo pacman -S picom
 ### Font
 
 ```
-$ sudo pacman -S noto-fonts        # noto-fonts-emoji ttf-firacode-nerd
-$ yay -S nerd-fonts-complete       # package not found
+$ sudo pacman -S noto-fonts noto-fonts-emoji ttf-firacode-nerd
+$ yay -S nerd-fonts-complete       # package not found. nerd-fonts-complete package has gone to community repo in various packages splitted
+$ sudo pacman -S nerd-fonts        # installs ttf-nerd-fonts-symbols, ttf-nerd-fonts-symbols-common
 ```
 
 To support Asian letters:
