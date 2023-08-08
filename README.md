@@ -428,7 +428,7 @@ $ sudo pacman -S alsa-utils alsa-plugins
 $ sudo pacman -S pavucontrol
 ```
 
-PulseAudio Applet: (skip)
+PulseAudio Applet:
 
 ```
 $ yay -S pa-applet-git
@@ -441,7 +441,7 @@ $ sudo pacman -S openssh
 $ sudo pacman -S iw wpa_supplicant
 ```
 
-NetworkManager Applet: (skip)
+NetworkManager Applet:
 
 ```
 $ sudo pacman -S network-manager-applet
@@ -505,7 +505,7 @@ $ sudo timedatectl set-ntp true
 ### Xorg
 
 ```
-$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip        # xdotool
+$ sudo pacman -S xorg-server xorg-apps xorg-xinit xclip        xdotool
 ```
 
 ### i3
